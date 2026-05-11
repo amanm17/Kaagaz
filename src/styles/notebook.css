@@ -3555,3 +3555,165 @@
   background:rgba(146,42,35,.16);
 }
 
+
+
+/* ---- Notebook highlight visibility fix ---- */
+
+/*
+  Earlier cleanup rules made every nested background transparent to prevent
+  accidental white boxes on coloured pages. That also hid intentional highlights.
+  These rules restore highlight colours while continuing to suppress only white
+  pasted/browser backgrounds.
+*/
+
+/* Allow intentional highlight backgrounds inside notebook editors. */
+.notebook-page-editor span[style*="background-color"],
+.notebook-page-editor font[style*="background-color"],
+.notebook-page-editor mark,
+.text-box-editor span[style*="background-color"],
+.text-box-editor font[style*="background-color"],
+.text-box-editor mark,
+.table-editor span[style*="background-color"],
+.table-editor font[style*="background-color"],
+.table-editor mark{
+  background-image:none!important;
+}
+
+/* Preserve common highlight colours from the notebook toolbar. */
+.notebook-page-editor span[style*="255, 232, 154"],
+.notebook-page-editor font[style*="255, 232, 154"],
+.text-box-editor span[style*="255, 232, 154"],
+.text-box-editor font[style*="255, 232, 154"],
+.table-editor span[style*="255, 232, 154"],
+.table-editor font[style*="255, 232, 154"]{
+  background-color:#ffe89a!important;
+}
+
+.notebook-page-editor span[style*="255, 194, 207"],
+.notebook-page-editor font[style*="255, 194, 207"],
+.text-box-editor span[style*="255, 194, 207"],
+.text-box-editor font[style*="255, 194, 207"],
+.table-editor span[style*="255, 194, 207"],
+.table-editor font[style*="255, 194, 207"]{
+  background-color:#ffc2cf!important;
+}
+
+.notebook-page-editor span[style*="216, 202, 255"],
+.notebook-page-editor font[style*="216, 202, 255"],
+.text-box-editor span[style*="216, 202, 255"],
+.text-box-editor font[style*="216, 202, 255"],
+.table-editor span[style*="216, 202, 255"],
+.table-editor font[style*="216, 202, 255"]{
+  background-color:#d8caff!important;
+}
+
+.notebook-page-editor span[style*="197, 241, 216"],
+.notebook-page-editor font[style*="197, 241, 216"],
+.text-box-editor span[style*="197, 241, 216"],
+.text-box-editor font[style*="197, 241, 216"],
+.table-editor span[style*="197, 241, 216"],
+.table-editor font[style*="197, 241, 216"]{
+  background-color:#c5f1d8!important;
+}
+
+.notebook-page-editor span[style*="190, 227, 255"],
+.notebook-page-editor font[style*="190, 227, 255"],
+.text-box-editor span[style*="190, 227, 255"],
+.text-box-editor font[style*="190, 227, 255"],
+.table-editor span[style*="190, 227, 255"],
+.table-editor font[style*="190, 227, 255"]{
+  background-color:#bee3ff!important;
+}
+
+.notebook-page-editor span[style*="255, 208, 170"],
+.notebook-page-editor font[style*="255, 208, 170"],
+.text-box-editor span[style*="255, 208, 170"],
+.text-box-editor font[style*="255, 208, 170"],
+.table-editor span[style*="255, 208, 170"],
+.table-editor font[style*="255, 208, 170"]{
+  background-color:#ffd0aa!important;
+}
+
+/* Hex values if the browser preserves them as hex instead of RGB. */
+.notebook-page-editor span[style*="#ffe89a"],
+.notebook-page-editor font[style*="#ffe89a"],
+.text-box-editor span[style*="#ffe89a"],
+.text-box-editor font[style*="#ffe89a"],
+.table-editor span[style*="#ffe89a"],
+.table-editor font[style*="#ffe89a"]{
+  background-color:#ffe89a!important;
+}
+
+.notebook-page-editor span[style*="#ffc2cf"],
+.notebook-page-editor font[style*="#ffc2cf"],
+.text-box-editor span[style*="#ffc2cf"],
+.text-box-editor font[style*="#ffc2cf"],
+.table-editor span[style*="#ffc2cf"],
+.table-editor font[style*="#ffc2cf"]{
+  background-color:#ffc2cf!important;
+}
+
+.notebook-page-editor span[style*="#d8caff"],
+.notebook-page-editor font[style*="#d8caff"],
+.text-box-editor span[style*="#d8caff"],
+.text-box-editor font[style*="#d8caff"],
+.table-editor span[style*="#d8caff"],
+.table-editor font[style*="#d8caff"]{
+  background-color:#d8caff!important;
+}
+
+.notebook-page-editor span[style*="#c5f1d8"],
+.notebook-page-editor font[style*="#c5f1d8"],
+.text-box-editor span[style*="#c5f1d8"],
+.text-box-editor font[style*="#c5f1d8"],
+.table-editor span[style*="#c5f1d8"],
+.table-editor font[style*="#c5f1d8"]{
+  background-color:#c5f1d8!important;
+}
+
+.notebook-page-editor span[style*="#bee3ff"],
+.notebook-page-editor font[style*="#bee3ff"],
+.text-box-editor span[style*="#bee3ff"],
+.text-box-editor font[style*="#bee3ff"],
+.table-editor span[style*="#bee3ff"],
+.table-editor font[style*="#bee3ff"]{
+  background-color:#bee3ff!important;
+}
+
+.notebook-page-editor span[style*="#ffd0aa"],
+.notebook-page-editor font[style*="#ffd0aa"],
+.text-box-editor span[style*="#ffd0aa"],
+.text-box-editor font[style*="#ffd0aa"],
+.table-editor span[style*="#ffd0aa"],
+.table-editor font[style*="#ffd0aa"]{
+  background-color:#ffd0aa!important;
+}
+
+/* Still suppress accidental white backgrounds on shaded/dark paper. */
+.notebook-page-editor span[style*="background-color: white"],
+.notebook-page-editor font[style*="background-color: white"],
+.text-box-editor span[style*="background-color: white"],
+.text-box-editor font[style*="background-color: white"],
+.table-editor span[style*="background-color: white"],
+.table-editor font[style*="background-color: white"],
+.notebook-page-editor span[style*="background-color: rgb(255, 255, 255)"],
+.notebook-page-editor font[style*="background-color: rgb(255, 255, 255)"],
+.text-box-editor span[style*="background-color: rgb(255, 255, 255)"],
+.text-box-editor font[style*="background-color: rgb(255, 255, 255)"],
+.table-editor span[style*="background-color: rgb(255, 255, 255)"],
+.table-editor font[style*="background-color: rgb(255, 255, 255)"]{
+  background-color:transparent!important;
+}
+
+/* Improve highlight readability on black pages without hiding it. */
+.notebook-page.black .notebook-page-editor span[style*="background-color"],
+.notebook-page.black .notebook-page-editor font[style*="background-color"],
+.notebook-page.black .text-box-editor span[style*="background-color"],
+.notebook-page.black .text-box-editor font[style*="background-color"],
+.notebook-page.black .table-editor span[style*="background-color"],
+.notebook-page.black .table-editor font[style*="background-color"]{
+  color:#1f120b!important;
+  border-radius:3px;
+  padding:0 2px;
+}
+

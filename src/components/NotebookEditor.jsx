@@ -45,6 +45,7 @@ const COLOURS = [
 ]
 
 const HIGHLIGHTS = [
+  { key: 'transparent', label: 'None' },
   { key: '#ffe89a', label: 'Amber' },
   { key: '#ffc2cf', label: 'Rose' },
   { key: '#d8caff', label: 'Lavender' },
@@ -263,6 +264,30 @@ export default function NotebookEditor({ notebookId, onHome }) {
     const blockId = blockEl?.dataset.blockId || activeBlockIdRef.current
 
     if (blockId) updateBlockLocal(blockId, { content: target.innerHTML })
+  }
+
+  function removeHighlight() {
+    const target =
+      document.activeElement?.closest?.('.notebook-page-editor, .text-box-editor, .table-editor') ||
+      activeEditorRef.current
+
+    if (!target) return
+
+    target.focus()
+
+    // Works in most modern browsers for contentEditable.
+    document.execCommand('removeFormat', false, null)
+
+    // Save whichever editor was active.
+    if (target.classList.contains('notebook-page-editor')) {
+      const pageNo = Number(target.dataset.page)
+      updatePageContent(pageNo, target.innerHTML)
+      return
+    }
+
+    const blockEl = target.closest('.notebook-free-block')
+    const blockId = blockEl?.dataset.blockId || activeBlockIdRef.current
+    if (blockId) updateBlockLocal(Number(blockId), { content: target.innerHTML })
   }
 
   function addLink() {
@@ -738,7 +763,16 @@ export default function NotebookEditor({ notebookId, onHome }) {
             <option value="" disabled>Text</option>
             {COLOURS.map((c) => <option key={c.key} value={c.key}>{c.label}</option>)}
           </select>
-          <select title="Highlight colour" data-tooltip="Highlight colour" onChange={(event) => runCommand('hiliteColor', event.target.value)} defaultValue="">
+          <select
+            title="Highlight colour"
+            data-tooltip="Highlight colour"
+            onChange={(event) => {
+              if (event.target.value === 'transparent') removeHighlight()
+              else runCommand('hiliteColor', event.target.value)
+              event.target.value = ''
+            }}
+            defaultValue=""
+          >
             <option value="" disabled>Highlight</option>
             {HIGHLIGHTS.map((c) => <option key={c.key} value={c.key}>{c.label}</option>)}
           </select>
