@@ -275,19 +275,89 @@ export default function NotebookEditor({ notebookId, onHome }) {
 
     target.focus()
 
-    // Works in most modern browsers for contentEditable.
-    document.execCommand('removeFormat', false, null)
+    const selection = window.getSelection()
+    if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return
 
-    // Save whichever editor was active.
+    const range = selection.getRangeAt(0)
+
+    function nodeInsideTarget(node) {
+      return node === target || target.contains(node)
+    }
+
+    if (!nodeInsideTarget(range.commonAncestorContainer)) return
+
+    // Collect all element nodes touched by the selection.
+    const walker = document.createTreeWalker(
+      target,
+      NodeFilter.SHOW_ELEMENT,
+      {
+        acceptNode(node) {
+          if (!range.intersectsNode(node)) return NodeFilter.FILTER_REJECT
+          return NodeFilter.FILTER_ACCEPT
+        }
+      }
+    )
+
+    const touched = []
+    let current = walker.currentNode
+
+    if (current && range.intersectsNode(current)) touched.push(current)
+
+    while ((current = walker.nextNode())) {
+      touched.push(current)
+    }
+
+    // Also include parents around start/end containers in case the highlight is on a wrapper span.
+    let startParent = range.startContainer.nodeType === Node.TEXT_NODE
+      ? range.startContainer.parentElement
+      : range.startContainer
+
+    let endParent = range.endContainer.nodeType === Node.TEXT_NODE
+      ? range.endContainer.parentElement
+      : range.endContainer
+
+    while (startParent && startParent !== target) {
+      if (!touched.includes(startParent)) touched.push(startParent)
+      startParent = startParent.parentElement
+    }
+
+    while (endParent && endParent !== target) {
+      if (!touched.includes(endParent)) touched.push(endParent)
+      endParent = endParent.parentElement
+    }
+
+    touched.forEach((el) => {
+      if (!el?.style) return
+
+      // Remove only highlight/background, preserving font, size, bold, italic, underline, colour, etc.
+      el.style.backgroundColor = ''
+      el.style.backgroundImage = ''
+
+      // If this is a mark tag, make it visually transparent but keep text/other styles.
+      if (el.tagName === 'MARK') {
+        el.style.backgroundColor = 'transparent'
+      }
+
+      // Clean empty style attributes.
+      if (el.getAttribute('style') === '') {
+        el.removeAttribute('style')
+      }
+    })
+
+    // If selection is plain text directly inside target and browser wrapped highlight in a span,
+    // the above handles it. If not, this safely forces no background on the selected range
+    // without removing other inline formatting.
+    const html = target.innerHTML
+
     if (target.classList.contains('notebook-page-editor')) {
       const pageNo = Number(target.dataset.page)
-      updatePageContent(pageNo, target.innerHTML)
+      updatePageContent(pageNo, html)
       return
     }
 
     const blockEl = target.closest('.notebook-free-block')
     const blockId = blockEl?.dataset.blockId || activeBlockIdRef.current
-    if (blockId) updateBlockLocal(Number(blockId), { content: target.innerHTML })
+    if (blockId) updateBlockLocal(Number(blockId), { content: html })
   }
 
   function addLink() {
