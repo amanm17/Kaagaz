@@ -2289,3 +2289,415 @@ button[title="Curly"],
   transform:translateY(-50%)!important;
 }
 
+/* ---- Kaagaz notebook phase 1 ---- */
+.notebook-modal-backdrop{position:fixed;inset:0;z-index:500;display:grid;place-items:center;background:rgba(16,10,7,.58);backdrop-filter:blur(18px)}
+.notebook-creator-modal{width:min(760px,calc(100vw - 36px));max-height:calc(100vh - 48px);overflow:auto;border-radius:32px;border:1px solid rgba(176,138,71,.28);background:radial-gradient(circle at 16% 10%,rgba(255,232,176,.16),transparent 32%),rgba(31,18,11,.92);box-shadow:0 34px 110px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.08);padding:24px;color:#f4dfb9}
+.notebook-creator-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.notebook-creator-head h2{margin:3px 0 0;font-size:30px;letter-spacing:-.03em}.notebook-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#c9a96c}
+.notebook-creator-head>button{width:34px;height:34px;border-radius:999px;border:1px solid rgba(176,138,71,.24);background:rgba(243,230,200,.08);color:#f4dfb9;cursor:pointer}
+.notebook-field{display:grid;gap:8px;margin:14px 0}.notebook-field>span{color:#d8bd8c;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.notebook-field input,.notebook-field select{width:100%;border-radius:18px;border:1px solid rgba(176,138,71,.28);background:rgba(243,230,200,.10);color:#f8e5c0;padding:12px 14px;outline:none}
+.notebook-creator-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notebook-cover-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.notebook-cover-swatch{min-height:74px;border:1px solid rgba(176,138,71,.24);border-radius:18px;color:#f9e7c4;font-weight:800;font-size:12px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 30px rgba(0,0,0,.20)}
+.notebook-cover-swatch.active{outline:2px solid rgba(252,220,139,.78);outline-offset:2px}
+.notebook-cover-swatch.walnut{background:linear-gradient(135deg,#4b2917,#1e120b)}.notebook-cover-swatch.oxblood{background:linear-gradient(135deg,#6d2228,#241015)}.notebook-cover-swatch.forest{background:linear-gradient(135deg,#24452e,#101c13)}.notebook-cover-swatch.midnight{background:linear-gradient(135deg,#18243f,#080b12)}.notebook-cover-swatch.kraft{background:linear-gradient(135deg,#a5723f,#4b2d18)}.notebook-cover-swatch.indigo{background:linear-gradient(135deg,#1d3f69,#10152b)}.notebook-cover-swatch.pattachitra{background:linear-gradient(135deg,#9e3d22,#e0b56a)}.notebook-cover-swatch.cream{background:linear-gradient(135deg,#e6d1a4,#8e6b3d);color:#2a1a12}
+.notebook-creator-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.notebook-editor-shell{min-height:100vh;color:#f4dfb9;background:radial-gradient(circle at 18% 12%,rgba(255,226,177,.12),transparent 28%),linear-gradient(135deg,#2b160d,#130b07 58%,#070504);overflow:hidden}
+.notebook-floating-head{position:fixed;left:24px;top:18px;z-index:90;display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:24px;border:1px solid rgba(176,138,71,.22);background:rgba(31,18,11,.62);backdrop-filter:blur(18px);box-shadow:0 18px 42px rgba(0,0,0,.28)}
+.notebook-floating-head strong{display:block;font-size:16px}.notebook-floating-head small{display:block;color:#c7aa75;font-size:11px}
+.notebook-home-btn{border:0;border-radius:999px;padding:8px 12px;background:linear-gradient(135deg,rgba(252,220,139,.90),rgba(180,129,50,.86));color:#2a1a12;font-weight:900;cursor:pointer}
+.notebook-rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:85;display:grid;gap:10px;padding:10px;border-radius:999px;border:1px solid rgba(176,138,71,.22);background:rgba(31,18,11,.64);backdrop-filter:blur(18px);box-shadow:0 22px 58px rgba(0,0,0,.32)}
+.notebook-rail button{width:38px;height:38px;border-radius:999px;border:1px solid rgba(176,138,71,.22);background:rgba(243,230,200,.08);color:#f2deb6;cursor:pointer;font-weight:900}.notebook-rail button.active,.notebook-rail button:hover{background:linear-gradient(135deg,rgba(252,220,139,.92),rgba(180,129,50,.86));color:#2a1a12}.notebook-rail button:disabled{opacity:.35;cursor:not-allowed}
+.notebook-page-setup{position:fixed;left:82px;top:50%;transform:translateY(-50%);z-index:100;width:230px;display:grid;gap:10px;padding:14px;border-radius:24px;border:1px solid rgba(176,138,71,.24);background:rgba(31,18,11,.86);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(0,0,0,.34)}
+.notebook-page-setup h3{margin:0;font-size:15px}.notebook-page-setup label{display:grid;gap:6px;font-size:11px;color:#c9a96c;text-transform:uppercase;letter-spacing:.08em}.notebook-page-setup select{border-radius:14px;border:1px solid rgba(176,138,71,.26);background:rgba(243,230,200,.10);color:#f8e5c0;padding:9px 10px}
+.notebook-desk{min-height:100vh;display:grid;place-items:center;padding:96px 90px 72px 110px}
+.notebook-page{--paper-bg:#f1dfb8;--paper-line:rgba(92,57,22,.20);--notebook-ink:#2a1a12;position:relative;width:min(760px,calc(100vw - 220px));height:min(980px,calc(100vh - 150px));min-height:620px;border-radius:20px;background-color:var(--paper-bg);color:var(--notebook-ink);box-shadow:0 38px 110px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.55),inset 0 0 0 1px rgba(92,57,22,.08);overflow:hidden}
+.notebook-page.clean-white{--paper-bg:#faf6eb;--paper-line:rgba(92,57,22,.16);--notebook-ink:#20140c}.notebook-page.cream{--paper-bg:#f1dfb8;--paper-line:rgba(92,57,22,.20);--notebook-ink:#2a1a12}.notebook-page.aged{--paper-bg:#e4c994;--paper-line:rgba(80,49,21,.22);--notebook-ink:#2a1a12}.notebook-page.kraft{--paper-bg:#bd8d55;--paper-line:rgba(58,32,13,.22);--notebook-ink:#24140a}.notebook-page.black{--paper-bg:#17120d;--paper-line:rgba(245,223,180,.25);--notebook-ink:#f5dfb4}
+.notebook-page.ruled{background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--paper-line) 32px)}.notebook-page.dotted{background-image:radial-gradient(var(--paper-line) 1.2px,transparent 1.2px);background-size:22px 22px}.notebook-page.square{background-image:linear-gradient(var(--paper-line) 1px,transparent 1px),linear-gradient(90deg,var(--paper-line) 1px,transparent 1px);background-size:28px 28px}
+.notebook-writing-area{position:absolute;inset:48px 56px;width:calc(100% - 112px);height:calc(100% - 96px);border:0;outline:0;resize:none;background:transparent;color:var(--notebook-ink);font:500 18px/1.78 Georgia,'Times New Roman',serif;letter-spacing:.002em;caret-color:var(--notebook-ink)}
+.notebook-writing-area::placeholder{color:color-mix(in srgb,var(--notebook-ink),transparent 55%)}.notebook-page.black .notebook-writing-area{color:#f5dfb4;caret-color:#f5dfb4}.notebook-loading{padding:120px 40px}
+@media(max-width:760px){.notebook-creator-row,.notebook-cover-grid{grid-template-columns:1fr 1fr}.notebook-desk{padding:100px 24px 60px 72px}.notebook-page{width:calc(100vw - 96px)}.notebook-writing-area{inset:34px 30px;width:calc(100% - 60px);height:calc(100% - 68px);font-size:16px}}
+
+
+/* ---- Restore/guard PDF presenter mode bubble ---- */
+
+.reader-presenter-bubble.active{
+  box-shadow:0 0 0 2px rgba(252,220,139,.32), 0 0 22px rgba(252,220,139,.22)!important;
+}
+
+.reader-shell.presenter-focus .minimal-header,
+.reader-shell.presenter-focus .side-panel{
+  opacity:0;
+  pointer-events:none;
+}
+
+.reader-shell.presenter-focus .reader-toolbar{
+  opacity:.14;
+  transition:opacity .18s ease;
+}
+
+.reader-shell.presenter-focus .reader-toolbar:hover{
+  opacity:1;
+}
+
+.reader-shell.presenter-focus .pdf-stage,
+.reader-shell.presenter-focus .reader-stage,
+.reader-shell.presenter-focus .page-stage{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+
+
+/* ---- Library rename/edit buttons ---- */
+
+.rename-book{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  z-index:8;
+  border:1px solid rgba(176,138,71,.25);
+  border-radius:999px;
+  background:rgba(31,18,11,.72);
+  color:#f4dfb9;
+  font-size:11px;
+  font-weight:800;
+  padding:5px 9px;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+.rename-book:hover{
+  border-color:rgba(252,220,139,.46);
+}
+
+
+
+/* ---- Aesthetic library action buttons ---- */
+
+.rename-book,
+.remove-book,
+.finish-book{
+  backdrop-filter:blur(12px)!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+
+.rename-book{
+  position:absolute!important;
+  left:12px!important;
+  bottom:12px!important;
+  z-index:8!important;
+  border:1px solid rgba(176,138,71,.26)!important;
+  border-radius:999px!important;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,231,188,.12), transparent 30%),
+    rgba(31,18,11,.70)!important;
+  color:#f4dfb9!important;
+  font-size:11px!important;
+  font-weight:800!important;
+  padding:5px 10px!important;
+  cursor:pointer!important;
+}
+
+.rename-book:hover,
+.remove-book:hover,
+.finish-book:hover{
+  border-color:rgba(252,220,139,.48)!important;
+  transform:translateY(-1px);
+}
+
+.notebook-card-wrap .rename-book{
+  left:12px!important;
+  bottom:12px!important;
+}
+
+.notebook-card-wrap .remove-book{
+  right:12px!important;
+  bottom:12px!important;
+}
+
+
+
+/* ---- Library filters, sorting, and double-click title rename ---- */
+
+.library-controls-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.library-segmented-filter{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.20);
+  background:rgba(31,18,11,.48);
+  backdrop-filter:blur(12px);
+}
+
+.library-segmented-filter button{
+  border:0;
+  border-radius:999px;
+  padding:7px 12px;
+  background:transparent;
+  color:#c9aa78;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:800;
+}
+
+.library-segmented-filter button.active{
+  background:linear-gradient(135deg, rgba(252,220,139,.92), rgba(180,129,50,.88));
+  color:#2a1a12;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32);
+}
+
+.library-sort-select{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.20);
+  background:rgba(31,18,11,.48);
+  color:#d6bd8d;
+  padding:5px 6px 5px 11px;
+  backdrop-filter:blur(12px);
+}
+
+.library-sort-select span{
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.library-sort-select select{
+  border:0;
+  outline:0;
+  border-radius:999px;
+  padding:7px 10px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:800;
+}
+
+.library-sort-select option{
+  background:#1f120b;
+  color:#f4dfb9;
+}
+
+.library-title-editable{
+  cursor:text;
+  border-radius:8px;
+  padding:2px 4px;
+  margin-left:-4px;
+  transition:background .16s ease, box-shadow .16s ease;
+}
+
+.library-title-editable:hover{
+  background:rgba(252,220,139,.10);
+  box-shadow:0 0 0 1px rgba(252,220,139,.18);
+}
+
+.filtered-library-empty{
+  grid-column:1 / -1;
+  border:1px dashed rgba(176,138,71,.25);
+  border-radius:24px;
+  padding:28px;
+  text-align:center;
+  color:#d6bd8d;
+  background:rgba(31,18,11,.34);
+}
+
+/* Remove visual clutter from old edit/rename action buttons if any remain */
+.rename-book{
+  display:none!important;
+}
+
+/* Make delete/remove smaller and less visually dominant */
+.remove-book{
+  min-width:auto!important;
+  max-width:max-content!important;
+  padding:5px 10px!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  border-radius:999px!important;
+  opacity:.82!important;
+}
+
+.remove-book:hover{
+  opacity:1!important;
+}
+
+.notebook-card-wrap .remove-book,
+.library-card-wrap .remove-book{
+  right:12px!important;
+  bottom:12px!important;
+}
+
+/* Keep mark finished small too */
+.finish-book{
+  min-width:auto!important;
+  max-width:max-content!important;
+  padding:5px 10px!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  border-radius:999px!important;
+}
+
+@media(max-width:760px){
+  .library-controls-row{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .library-sort-select{
+    width:max-content;
+  }
+}
+
+
+
+/* ---- Phase 6 library card action polish ---- */
+
+/* Keep destructive actions small and quiet on the welcome page */
+.library-card-wrap .remove-book,
+.notebook-card-wrap .remove-book,
+.library-card-wrap .finish-book{
+  min-width:0!important;
+  width:auto!important;
+  height:auto!important;
+  padding:4px 8px!important;
+  font-size:10px!important;
+  line-height:1!important;
+  border-radius:999px!important;
+  opacity:.76!important;
+  transform:none!important;
+}
+
+.library-card-wrap .remove-book:hover,
+.notebook-card-wrap .remove-book:hover,
+.library-card-wrap .finish-book:hover{
+  opacity:1!important;
+  transform:translateY(-1px)!important;
+}
+
+/* Styled notebook Edit chip: small, brass, and placed away from Delete */
+.notebook-edit-chip{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  z-index:9;
+  border:1px solid rgba(176,138,71,.26);
+  border-radius:999px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,231,188,.12), transparent 30%),
+    rgba(31,18,11,.72);
+  color:#f4dfb9;
+  font-size:10px;
+  font-weight:900;
+  line-height:1;
+  padding:5px 9px;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+  box-shadow:0 8px 20px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.notebook-edit-chip:hover{
+  border-color:rgba(252,220,139,.46);
+  transform:translateY(-1px);
+}
+
+/* Hide old rename chip if any old CSS/script left it behind */
+.rename-book{
+  display:none!important;
+}
+
+/* Let Delete remain right-side, Edit left-side */
+.notebook-card-wrap .remove-book{
+  right:12px!important;
+  bottom:12px!important;
+  left:auto!important;
+}
+
+
+
+/* ---- Hard fix: welcome-page action buttons must be compact pills, not tiles ---- */
+
+.library-card-wrap .remove-book,
+.library-card-wrap .finish-book,
+.notebook-card-wrap .remove-book,
+.notebook-card-wrap .notebook-edit-chip{
+  width:auto!important;
+  min-width:0!important;
+  max-width:max-content!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:24px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  padding:4px 8px!important;
+  border-radius:999px!important;
+  font-size:10px!important;
+  line-height:1!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+  box-sizing:border-box!important;
+}
+
+.library-card-wrap .remove-book,
+.notebook-card-wrap .remove-book{
+  position:absolute!important;
+  right:10px!important;
+  bottom:10px!important;
+  left:auto!important;
+  top:auto!important;
+}
+
+.library-card-wrap .finish-book{
+  position:absolute!important;
+  right:10px!important;
+  bottom:38px!important;
+  left:auto!important;
+  top:auto!important;
+}
+
+.notebook-card-wrap .notebook-edit-chip{
+  position:absolute!important;
+  left:10px!important;
+  bottom:10px!important;
+  right:auto!important;
+  top:auto!important;
+}
+
+.rename-book{
+  display:none!important;
+}
+
+
+
+/* ---- Welcome page notebook edit chip position refinement ---- */
+
+.notebook-card-wrap .notebook-edit-chip{
+  left:24px!important;
+  bottom:10px!important;
+}
+
+
+
+/* ---- Notebook custom cover card support ---- */
+
+.notebook-cover.custom,
+.notebook-card.cover-custom{
+  background-size:cover!important;
+  background-position:center!important;
+}
+

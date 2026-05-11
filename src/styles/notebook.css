@@ -1,0 +1,3557 @@
+
+/* ---- Kaagaz Notebooks Phase 1 ---- */
+
+.home-action-row{
+  width:min(1080px, calc(100vw - 48px));
+  margin:18px auto 0;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+.notebook-add-button{
+  border:1px solid rgba(176,138,71,.28);
+  border-radius:999px;
+  padding:11px 18px;
+  background:radial-gradient(circle at 18% 10%, rgba(255,231,188,.16), transparent 28%), rgba(31,18,11,.62);
+  color:#f4dfb9;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-weight:800;
+  box-shadow:0 16px 38px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(16px);
+}
+
+.notebook-add-button span{
+  width:24px;
+  height:24px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(252,220,139,.20);
+  color:#ffe3a4;
+}
+
+.notebook-modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:grid;
+  place-items:center;
+  background:rgba(13,8,5,.62);
+  backdrop-filter:blur(14px);
+}
+
+.notebook-creator-modal{
+  width:min(720px, calc(100vw - 32px));
+  max-height:calc(100vh - 42px);
+  overflow:auto;
+  padding:24px;
+  border-radius:28px;
+  border:1px solid rgba(176,138,71,.30);
+  background:radial-gradient(circle at 20% 8%, rgba(255,231,188,.12), transparent 30%), rgba(31,18,11,.94);
+  color:#f4dfb9;
+  box-shadow:0 34px 90px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.notebook-creator-head{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:18px;
+}
+
+.notebook-creator-head h2{
+  margin:3px 0 0;
+  font-family:Georgia, serif;
+  font-size:34px;
+}
+
+.notebook-kicker{
+  color:#c9a76e;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-size:11px;
+}
+
+.notebook-creator-head button{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.28);
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  cursor:pointer;
+}
+
+.notebook-field{
+  display:grid;
+  gap:8px;
+  margin:14px 0;
+}
+
+.notebook-field > span{
+  color:#d9bd88;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.notebook-field input,
+.notebook-field select{
+  width:100%;
+  border-radius:16px;
+  border:1px solid rgba(176,138,71,.28);
+  background:rgba(243,230,200,.10);
+  color:#f7e5c2;
+  padding:12px 13px;
+  outline:none;
+}
+
+.notebook-creator-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.notebook-cover-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:10px;
+}
+
+.notebook-cover-swatch{
+  min-height:74px;
+  border-radius:18px;
+  border:1px solid rgba(176,138,71,.25);
+  color:#f4dfb9;
+  font-weight:800;
+  cursor:pointer;
+  padding:10px;
+  background:linear-gradient(135deg, #5a351f, #1f120b);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.notebook-cover-swatch.active{
+  outline:2px solid rgba(252,220,139,.72);
+  outline-offset:2px;
+}
+
+.notebook-cover-swatch.oxblood,
+.notebook-cover.oxblood{background:linear-gradient(135deg, #5a1822, #2b0d13)!important}
+
+.notebook-cover-swatch.forest,
+.notebook-cover.forest{background:linear-gradient(135deg, #1f412e, #0f2118)!important}
+
+.notebook-cover-swatch.midnight,
+.notebook-cover.midnight{background:linear-gradient(135deg, #182238, #090d17)!important}
+
+.notebook-cover-swatch.kraft,
+.notebook-cover.kraft{background:linear-gradient(135deg, #a77845, #5d3920)!important}
+
+.notebook-cover-swatch.cream,
+.notebook-cover.cream{background:linear-gradient(135deg, #ead8ad, #b99055)!important;color:#2a1a12!important}
+
+.notebook-creator-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:18px;
+}
+
+.notebook-library-card .notebook-cover{
+  background:linear-gradient(135deg, rgba(85,45,25,.96), rgba(32,18,12,.98));
+}
+
+.notebook-cover span{
+  font-family:Georgia, serif;
+  font-size:34px;
+  font-weight:800;
+  color:#f3dfb8;
+}
+
+.notebook-editor-shell{
+  min-height:100vh;
+  color:#f4dfb9;
+  background:radial-gradient(circle at 20% 10%, rgba(145,90,42,.18), transparent 35%), linear-gradient(135deg, #24150d, #110b08);
+  overflow:hidden;
+}
+
+.notebook-floating-head{
+  position:fixed;
+  top:18px;
+  left:24px;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 14px;
+  border-radius:22px;
+  border:1px solid rgba(176,138,71,.22);
+  background:rgba(31,18,11,.60);
+  backdrop-filter:blur(16px);
+  box-shadow:0 16px 40px rgba(0,0,0,.26);
+}
+
+.notebook-floating-head strong{
+  display:block;
+  font-family:Georgia, serif;
+  font-size:18px;
+}
+
+.notebook-floating-head small{
+  display:block;
+  color:#c7a875;
+  font-size:12px;
+}
+
+.notebook-home-btn{
+  border:1px solid rgba(176,138,71,.25);
+  border-radius:999px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+.notebook-rail{
+  position:fixed;
+  left:20px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:70;
+  display:grid;
+  gap:9px;
+  padding:9px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.24);
+  background:rgba(31,18,11,.70);
+  backdrop-filter:blur(16px);
+}
+
+.notebook-rail button{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.22);
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.notebook-rail button.active{
+  background:linear-gradient(135deg, rgba(252,220,139,.92), rgba(180,129,50,.88));
+  color:#2a1a12;
+}
+
+.notebook-page-setup{
+  position:fixed;
+  left:82px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:75;
+  width:240px;
+  padding:16px;
+  border-radius:22px;
+  border:1px solid rgba(176,138,71,.25);
+  background:rgba(31,18,11,.86);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 58px rgba(0,0,0,.34);
+}
+
+.notebook-page-setup h3{
+  margin:0 0 12px;
+  font-family:Georgia, serif;
+}
+
+.notebook-page-setup label{
+  display:grid;
+  gap:6px;
+  margin-bottom:12px;
+}
+
+.notebook-page-setup span{
+  color:#d9bd88;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.notebook-page-setup select{
+  border-radius:14px;
+  border:1px solid rgba(176,138,71,.25);
+  background:rgba(243,230,200,.10);
+  color:#f7e5c2;
+  padding:10px;
+}
+
+.notebook-desk{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:100px 40px 60px 116px;
+}
+
+.notebook-page{
+  position:relative;
+  width:min(760px, calc(100vw - 210px));
+  min-height:920px;
+  border-radius:20px;
+  padding:58px 64px;
+  background-color:var(--paper-bg);
+  color:var(--notebook-ink);
+  box-shadow:0 34px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.45);
+  overflow:hidden;
+  --paper-bg:#f4e4c3;
+  --paper-line:rgba(92,57,22,.20);
+  --notebook-ink:#2a1a12;
+}
+
+.notebook-page.clean-white{--paper-bg:#f8f4ec;--paper-line:rgba(92,57,22,.16);--notebook-ink:#21160f}
+.notebook-page.cream{--paper-bg:#f4e4c3;--paper-line:rgba(92,57,22,.20);--notebook-ink:#2a1a12}
+.notebook-page.aged{--paper-bg:#e6cf9f;--paper-line:rgba(92,57,22,.24);--notebook-ink:#2a1a12}
+.notebook-page.kraft{--paper-bg:#bd8f56;--paper-line:rgba(55,32,16,.28);--notebook-ink:#1f130d}
+.notebook-page.black{--paper-bg:#17120d;--paper-line:rgba(245,223,180,.26);--notebook-ink:#f5dfb4}
+
+.notebook-page.ruled{
+  background-image:repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--paper-line) 32px);
+}
+
+.notebook-page.dotted{
+  background-image:radial-gradient(var(--paper-line) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+
+.notebook-page.square{
+  background-image:linear-gradient(var(--paper-line) 1px, transparent 1px), linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+
+.notebook-writing-area{
+  position:relative;
+  z-index:3;
+  width:100%;
+  min-height:790px;
+  border:0;
+  outline:0;
+  resize:none;
+  background:transparent;
+  color:var(--notebook-ink);
+  font:500 18px/1.75 Georgia, serif;
+}
+
+.notebook-page.black .notebook-writing-area{
+  color:#f5dfb4;
+}
+
+.notebook-loading{
+  padding:120px 40px;
+  text-align:center;
+  color:#e2c594;
+}
+
+@media(max-width:760px){
+  .notebook-cover-grid,
+  .notebook-creator-row{
+    grid-template-columns:1fr;
+  }
+
+  .notebook-desk{
+    padding:110px 18px 52px 76px;
+  }
+
+  .notebook-page{
+    width:calc(100vw - 104px);
+    min-height:760px;
+    padding:44px 32px;
+  }
+
+  .notebook-writing-area{
+    min-height:650px;
+  }
+}
+
+
+/* ---- Notebook editor Phase 2: formatting, spread view, delete page ---- */
+
+.notebook-creator-note{
+  margin:10px 0 0;
+  color:#c7a875;
+  font-size:12px;
+  line-height:1.45;
+}
+
+.notebook-format-bar,
+.notebook-insert-bar{
+  position:fixed;
+  left:50%;
+  top:84px;
+  transform:translateX(-50%);
+  z-index:78;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  max-width:calc(100vw - 220px);
+  overflow:auto;
+  padding:8px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.24);
+  background:rgba(31,18,11,.76);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 46px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+.notebook-insert-bar{
+  top:136px;
+}
+
+.notebook-format-bar button,
+.notebook-insert-bar button,
+.notebook-format-bar select{
+  min-height:32px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.22);
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  padding:6px 10px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.notebook-format-bar select{
+  outline:none;
+}
+
+.notebook-format-bar option{
+  background:#1f120b;
+  color:#f4dfb9;
+}
+
+.notebook-desk.single{
+  place-items:center;
+}
+
+.notebook-page-stack{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:28px;
+  width:100%;
+}
+
+.notebook-desk.spread{
+  place-items:center;
+}
+
+.notebook-desk.spread .notebook-page{
+  width:min(620px, calc((100vw - 220px) / 2));
+  min-height:860px;
+  padding:52px 52px;
+}
+
+.notebook-desk.spread .notebook-writing-area{
+  min-height:730px;
+}
+
+.notebook-page-chip{
+  position:absolute;
+  right:20px;
+  bottom:16px;
+  z-index:5;
+  padding:5px 9px;
+  border-radius:999px;
+  border:1px solid rgba(92,57,22,.18);
+  background:rgba(255,255,255,.18);
+  color:var(--notebook-ink);
+  font-size:11px;
+  font-weight:800;
+}
+
+.notebook-writing-area{
+  display:block;
+  white-space:pre-wrap;
+  word-break:break-word;
+  overflow-wrap:anywhere;
+}
+
+.notebook-writing-area:empty::before{
+  content:attr(data-placeholder);
+  color:color-mix(in srgb, var(--notebook-ink) 44%, transparent);
+  pointer-events:none;
+}
+
+.notebook-writing-area:focus{
+  outline:none;
+}
+
+.notebook-writing-area a{
+  color:#6c56d9;
+  text-decoration:underline;
+}
+
+.notebook-page.black .notebook-writing-area a{
+  color:#b9cdfd;
+}
+
+.notebook-table{
+  border-collapse:collapse;
+  width:100%;
+  margin:12px 0;
+  color:inherit;
+}
+
+.notebook-table td{
+  border:1px solid var(--paper-line);
+  padding:9px 10px;
+  min-width:80px;
+  min-height:32px;
+}
+
+.notebook-table tr:first-child td{
+  background:rgba(176,138,71,.08);
+}
+
+@media(max-width:900px){
+  .notebook-format-bar,
+  .notebook-insert-bar{
+    left:86px;
+    right:18px;
+    transform:none;
+    max-width:none;
+    border-radius:22px;
+    justify-content:flex-start;
+  }
+
+  .notebook-page-stack{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .notebook-desk.spread .notebook-page{
+    width:calc(100vw - 104px);
+  }
+}
+
+
+
+/* ---- Notebook usability fix: text direction, tooltips, zoom rail, toolbar position ---- */
+
+/* Fix mirrored/unstable typing. Force normal text flow in notebook editor. */
+.notebook-writing-area,
+.notebook-writing-area *{
+  direction:ltr!important;
+  unicode-bidi:normal!important;
+  writing-mode:horizontal-tb!important;
+  transform:none;
+}
+
+.notebook-writing-area{
+  text-align:left;
+  caret-color:var(--notebook-ink);
+  line-height:32px!important;
+  font-variant-ligatures:normal;
+}
+
+/* Make text snap to the ruling/grid rhythm across ruled, dotted and square pages. */
+.notebook-page.ruled .notebook-writing-area,
+.notebook-page.dotted .notebook-writing-area,
+.notebook-page.square .notebook-writing-area{
+  line-height:32px!important;
+}
+
+/* Keep black-page ink contrast correct. */
+.notebook-page.black .notebook-writing-area,
+.notebook-page.black .notebook-writing-area *{
+  color:#f5dfb4;
+}
+
+/* Move formatting toolbar higher and keep it centred above the notebook. */
+.notebook-format-bar{
+  top:62px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  max-width:min(980px, calc(100vw - 260px))!important;
+}
+
+.notebook-insert-bar{
+  top:112px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  max-width:min(720px, calc(100vw - 260px))!important;
+}
+
+/* Add hover labels to notebook bubbles, matching reader behaviour. */
+.notebook-rail button,
+.notebook-format-bar button,
+.notebook-insert-bar button,
+.notebook-zoom-rail button,
+.notebook-exit-presenter{
+  position:relative;
+}
+
+.notebook-rail button[data-tooltip]:hover::after,
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after,
+.notebook-zoom-rail button[data-tooltip]:hover::after,
+.notebook-exit-presenter[data-tooltip]:hover::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  z-index:999;
+  left:calc(100% + 10px);
+  top:50%;
+  transform:translateY(-50%);
+  white-space:nowrap;
+  padding:6px 9px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.25);
+  background:rgba(31,18,11,.92);
+  color:#f4dfb9;
+  font-size:11px;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(0,0,0,.30);
+  pointer-events:none;
+}
+
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after{
+  left:50%;
+  top:auto;
+  bottom:calc(100% + 8px);
+  transform:translateX(-50%);
+}
+
+/* Notebook magnification rail, visually aligned to the PDF reader rail. */
+.notebook-zoom-rail{
+  position:fixed;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:82;
+  display:grid;
+  align-items:center;
+  justify-items:center;
+  gap:9px;
+  padding:10px 8px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.24);
+  background:rgba(31,18,11,.72);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 46px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .24s ease, opacity .24s ease;
+}
+
+.notebook-zoom-rail.is-hidden{
+  transform:translateY(-50%) translateX(calc(100% - 18px));
+  opacity:.88;
+}
+
+.notebook-zoom-rail button{
+  width:38px;
+  min-height:34px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.22);
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  cursor:pointer;
+  font-weight:900;
+  font-size:11px;
+}
+
+.notebook-zoom-rail button.active{
+  background:linear-gradient(135deg, rgba(252,220,139,.92), rgba(180,129,50,.88));
+  color:#2a1a12;
+}
+
+.notebook-zoom-rail input[type="range"]{
+  width:120px;
+  transform:rotate(-90deg);
+  accent-color:#d6a84e;
+  margin:48px 0;
+}
+
+.notebook-zoom-rail small{
+  color:#d6bd8d;
+  font-size:10px;
+  font-weight:800;
+}
+
+.notebook-zoom-peek{
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  height:62px!important;
+}
+
+.notebook-desk .notebook-page-stack{
+  transform:scale(var(--notebook-zoom, 1));
+  transform-origin:center center;
+  transition:transform .18s ease;
+}
+
+.notebook-desk.fit .notebook-page-stack{
+  transform:scale(var(--notebook-zoom, 1));
+}
+
+.notebook-desk.presenter{
+  padding-left:40px!important;
+}
+
+.notebook-editor-shell:has(.notebook-desk.presenter) .notebook-rail,
+.notebook-editor-shell:has(.notebook-desk.presenter) .notebook-format-bar,
+.notebook-editor-shell:has(.notebook-desk.presenter) .notebook-insert-bar,
+.notebook-editor-shell:has(.notebook-desk.presenter) .notebook-floating-head{
+  opacity:0;
+  pointer-events:none;
+}
+
+.notebook-exit-presenter{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:120;
+  border:1px solid rgba(176,138,71,.28);
+  border-radius:999px;
+  padding:10px 14px;
+  background:rgba(31,18,11,.76);
+  color:#f4dfb9;
+  backdrop-filter:blur(16px);
+  cursor:pointer;
+  font-weight:800;
+}
+
+@media(max-width:900px){
+  .notebook-format-bar{
+    top:66px!important;
+    left:86px!important;
+    right:70px!important;
+    transform:none!important;
+    max-width:none!important;
+  }
+
+  .notebook-insert-bar{
+    top:122px!important;
+    left:86px!important;
+    right:70px!important;
+    transform:none!important;
+    max-width:none!important;
+  }
+
+  .notebook-zoom-rail{
+    right:10px;
+  }
+}
+
+
+
+/* ---- Notebook typing stability fix ---- */
+
+.notebook-writing-area{
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+  text-align:left;
+  transform:none!important;
+  -webkit-transform:none!important;
+  caret-color:var(--notebook-ink)!important;
+}
+
+.notebook-writing-area *{
+  direction:ltr!important;
+  unicode-bidi:normal!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+  -webkit-transform:none!important;
+}
+
+.notebook-writing-area div,
+.notebook-writing-area p,
+.notebook-writing-area li,
+.notebook-writing-area td{
+  text-align:inherit;
+}
+
+
+
+/* ---- Notebook toolbar/table refinement ---- */
+
+/* Put formatting toolbar higher, aligned with title zone, not over the notebook page. */
+.notebook-format-bar{
+  top:20px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  max-width:min(860px, calc(100vw - 360px))!important;
+  z-index:118!important;
+}
+
+.notebook-insert-bar{
+  top:72px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  max-width:min(520px, calc(100vw - 360px))!important;
+  z-index:118!important;
+}
+
+/* Prevent overlap with the floating notebook title on smaller screens by allowing horizontal scroll. */
+.notebook-format-bar,
+.notebook-insert-bar{
+  overflow-x:auto!important;
+  scrollbar-width:none;
+}
+
+.notebook-format-bar::-webkit-scrollbar,
+.notebook-insert-bar::-webkit-scrollbar{
+  display:none;
+}
+
+/* Hover labels for selects and labels in formatting / insert bars. */
+.notebook-format-bar select,
+.notebook-insert-bar label{
+  position:relative;
+}
+
+.notebook-format-bar select[title],
+.notebook-insert-bar label[title]{
+  cursor:pointer;
+}
+
+/* Native select tooltips are handled by title; buttons use custom tooltip from earlier rules. */
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  z-index:999;
+  left:50%;
+  top:auto;
+  bottom:calc(100% + 8px);
+  transform:translateX(-50%);
+  white-space:nowrap;
+  padding:6px 9px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.25);
+  background:rgba(31,18,11,.94);
+  color:#f4dfb9;
+  font-size:11px;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(0,0,0,.30);
+  pointer-events:none;
+}
+
+/* Slim notebook magnification rail to match left toolbar width. */
+.notebook-zoom-rail{
+  width:54px!important;
+  min-width:54px!important;
+  max-width:54px!important;
+  padding:9px 7px!important;
+}
+
+.notebook-zoom-rail button{
+  width:38px!important;
+  max-width:38px!important;
+  min-width:38px!important;
+  padding:0!important;
+}
+
+.notebook-zoom-rail input[type="range"]{
+  width:116px!important;
+  margin:44px 0!important;
+}
+
+.notebook-zoom-rail small{
+  width:38px!important;
+  text-align:center!important;
+}
+
+/* Better line snapping across all page patterns. */
+.notebook-writing-area{
+  line-height:32px!important;
+  background-size:inherit;
+}
+
+.notebook-page.ruled .notebook-writing-area,
+.notebook-page.dotted .notebook-writing-area,
+.notebook-page.square .notebook-writing-area{
+  line-height:32px!important;
+}
+
+.notebook-writing-area p,
+.notebook-writing-area div,
+.notebook-writing-area li{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  line-height:32px!important;
+  min-height:32px!important;
+}
+
+/* Insert table dimension controls */
+.notebook-insert-bar label{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:32px;
+  border-radius:999px;
+  border:1px solid rgba(176,138,71,.22);
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.notebook-insert-bar label span{
+  color:#d6bd8d;
+}
+
+.notebook-insert-bar input[type="number"]{
+  width:48px;
+  height:24px;
+  border:0;
+  outline:0;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  color:#f7e5c2;
+  text-align:center;
+  font-weight:800;
+}
+
+/* Make tables clearly visible and editable. */
+.notebook-table{
+  border-collapse:separate!important;
+  border-spacing:0!important;
+  width:100%!important;
+  margin:14px 0!important;
+  color:inherit!important;
+  border:2px solid color-mix(in srgb, var(--paper-line) 70%, var(--notebook-ink) 30%)!important;
+  border-radius:12px!important;
+  overflow:hidden!important;
+  background:rgba(255,255,255,.10)!important;
+}
+
+.notebook-table td{
+  border-right:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  border-bottom:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  padding:10px 12px!important;
+  min-width:86px!important;
+  min-height:34px!important;
+  line-height:24px!important;
+  vertical-align:top!important;
+  background:rgba(255,255,255,.075)!important;
+  outline:none!important;
+}
+
+.notebook-table tr:last-child td{
+  border-bottom:0!important;
+}
+
+.notebook-table td:last-child{
+  border-right:0!important;
+}
+
+.notebook-table td:focus{
+  box-shadow:inset 0 0 0 2px rgba(214,168,78,.45)!important;
+  background:rgba(255,232,156,.12)!important;
+}
+
+/* Stronger table contrast on black paper. */
+.notebook-page.black .notebook-table{
+  border-color:rgba(245,223,180,.42)!important;
+  background:rgba(245,223,180,.04)!important;
+}
+
+.notebook-page.black .notebook-table td{
+  border-color:rgba(245,223,180,.34)!important;
+  background:rgba(245,223,180,.035)!important;
+}
+
+/* Keep table cells editable and normal direction. */
+.notebook-table,
+.notebook-table *{
+  direction:ltr!important;
+  unicode-bidi:normal!important;
+  writing-mode:horizontal-tb!important;
+}
+
+@media(max-width:1100px){
+  .notebook-format-bar{
+    top:70px!important;
+    left:96px!important;
+    right:76px!important;
+    transform:none!important;
+    max-width:none!important;
+  }
+
+  .notebook-insert-bar{
+    top:122px!important;
+    left:96px!important;
+    right:76px!important;
+    transform:none!important;
+    max-width:none!important;
+  }
+}
+
+
+
+/* ---- Notebook refinement: fixed zoom rail, tooltips below, freeform blocks ---- */
+
+/* Align magnification bubbles inside the narrow rail. */
+.notebook-zoom-rail{
+  width:54px!important;
+  min-width:54px!important;
+  max-width:54px!important;
+  box-sizing:border-box!important;
+  justify-items:center!important;
+  align-items:center!important;
+  overflow:visible!important;
+  right:18px!important;
+}
+
+.notebook-zoom-rail button,
+.notebook-zoom-rail small{
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+  box-sizing:border-box!important;
+  margin:0 auto!important;
+  text-align:center!important;
+}
+
+.notebook-zoom-rail input[type="range"]{
+  width:114px!important;
+  margin:44px 0!important;
+  justify-self:center!important;
+}
+
+/* Tooltip below text toolbars so labels do not escape above the viewport. */
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after{
+  top:calc(100% + 8px)!important;
+  bottom:auto!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+}
+
+/* Lift toolbar into title-line zone without sitting on the page. */
+.notebook-format-bar{
+  top:22px!important;
+  z-index:130!important;
+}
+
+.notebook-insert-bar{
+  top:74px!important;
+  z-index:130!important;
+}
+
+/* Strong line rhythm on all notebook paper patterns. */
+.notebook-writing-area,
+.block-editor{
+  line-height:32px!important;
+}
+
+.notebook-writing-area p,
+.notebook-writing-area div,
+.notebook-writing-area li,
+.block-editor p,
+.block-editor div,
+.block-editor li{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  min-height:32px!important;
+  line-height:32px!important;
+}
+
+/* Freeform writing blocks */
+.notebook-page{
+  user-select:auto;
+}
+
+.notebook-free-block{
+  position:absolute;
+  z-index:20;
+  min-width:120px;
+  min-height:48px;
+  border:1px solid transparent;
+  border-radius:12px;
+  background:transparent;
+  color:var(--notebook-ink);
+  box-sizing:border-box;
+  cursor:grab;
+}
+
+.notebook-free-block.selected{
+  border-color:rgba(214,168,78,.55);
+  background:rgba(255,255,255,.055);
+  box-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+
+.block-drag-handle{
+  position:absolute;
+  left:-18px;
+  top:0;
+  width:16px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:rgba(31,18,11,.70);
+  color:#f4dfb9;
+  font-size:10px;
+  opacity:0;
+  pointer-events:none;
+}
+
+.notebook-free-block.selected .block-drag-handle,
+.notebook-free-block:hover .block-drag-handle{
+  opacity:1;
+}
+
+.block-editor{
+  min-height:48px;
+  width:100%;
+  outline:0;
+  padding:0;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  cursor:text;
+}
+
+.block-editor:empty::before{
+  content:attr(data-placeholder);
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent);
+}
+
+.block-resize{
+  position:absolute;
+  right:-6px;
+  bottom:-6px;
+  width:14px;
+  height:14px;
+  border-radius:999px;
+  background:rgba(214,168,78,.92);
+  box-shadow:0 4px 12px rgba(0,0,0,.24);
+  cursor:nwse-resize;
+  opacity:0;
+}
+
+.notebook-free-block.selected .block-resize,
+.notebook-free-block:hover .block-resize{
+  opacity:1;
+}
+
+.block-mini-tools{
+  position:absolute;
+  right:0;
+  top:-34px;
+  display:flex;
+  gap:6px;
+  padding:5px;
+  border-radius:999px;
+  background:rgba(31,18,11,.82);
+  backdrop-filter:blur(12px);
+}
+
+.block-mini-tools button{
+  border:1px solid rgba(176,138,71,.24);
+  border-radius:999px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  font-size:11px;
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+.notebook-image-block{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* Movable table block styling */
+.table-editor{
+  min-height:100%;
+}
+
+.notebook-table-block-table{
+  width:100%;
+  height:100%;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+  border:2px solid color-mix(in srgb, var(--paper-line) 70%, var(--notebook-ink) 30%)!important;
+  border-radius:12px;
+  overflow:hidden;
+  background:rgba(255,255,255,.10);
+}
+
+.notebook-table-block-table td{
+  border-right:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  border-bottom:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  min-width:72px;
+  min-height:30px;
+  padding:8px 10px;
+  vertical-align:top;
+  outline:none;
+}
+
+.notebook-table-block-table tr:last-child td{
+  border-bottom:0!important;
+}
+
+.notebook-table-block-table td:last-child{
+  border-right:0!important;
+}
+
+.notebook-table-block-table td:focus{
+  box-shadow:inset 0 0 0 2px rgba(214,168,78,.45);
+}
+
+/* Reduce visual dominance of the base full-page editor while keeping it usable. */
+.notebook-base-writing-area{
+  min-height:790px;
+}
+
+.notebook-page.black .notebook-free-block,
+.notebook-page.black .block-editor,
+.notebook-page.black .block-editor *{
+  color:#f5dfb4!important;
+}
+
+
+
+/* ---- Notebook final alignment fix: tooltips, zoom rail, writing margin ---- */
+
+/* 1) Make text-toolbar descriptions visible below the bar, above the page */
+.notebook-format-bar,
+.notebook-insert-bar{
+  overflow:visible!important;
+  z-index:400!important;
+}
+
+.notebook-format-bar button,
+.notebook-insert-bar button{
+  position:relative!important;
+}
+
+.notebook-format-bar button[data-tooltip]::after,
+.notebook-insert-bar button[data-tooltip]::after{
+  display:none;
+}
+
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after{
+  display:block!important;
+  content:attr(data-tooltip)!important;
+  position:absolute!important;
+  left:50%!important;
+  top:calc(100% + 10px)!important;
+  bottom:auto!important;
+  transform:translateX(-50%)!important;
+  z-index:99999!important;
+  white-space:nowrap!important;
+  padding:7px 10px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(176,138,71,.32)!important;
+  background:rgba(18,10,6,.98)!important;
+  color:#f7e5c2!important;
+  font-size:11px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.42)!important;
+  pointer-events:none!important;
+}
+
+/* Ensure the notebook page never covers toolbar hover labels */
+.notebook-desk,
+.notebook-page-stack,
+.notebook-page{
+  z-index:auto;
+}
+
+.notebook-desk{
+  position:relative;
+  z-index:1!important;
+}
+
+.notebook-page{
+  z-index:2!important;
+}
+
+/* 2) Rebuild notebook zoom rail alignment: all bubbles centred inside the outline */
+.notebook-zoom-rail{
+  width:56px!important;
+  min-width:56px!important;
+  max-width:56px!important;
+  padding:10px 8px!important;
+  right:18px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:9px!important;
+  box-sizing:border-box!important;
+  overflow:visible!important;
+  border-radius:999px!important;
+}
+
+.notebook-zoom-rail.is-hidden{
+  transform:translateY(-50%) translateX(42px)!important;
+}
+
+.notebook-zoom-rail button,
+.notebook-zoom-rail small{
+  position:relative!important;
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+  height:36px!important;
+  min-height:36px!important;
+  max-height:36px!important;
+  padding:0!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+  line-height:1!important;
+  overflow:hidden!important;
+  flex:0 0 auto!important;
+}
+
+.notebook-zoom-rail small{
+  height:24px!important;
+  min-height:24px!important;
+  max-height:24px!important;
+  color:#d6bd8d!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  background:transparent!important;
+  border:0!important;
+}
+
+.notebook-zoom-rail input[type="range"]{
+  -webkit-appearance:slider-vertical!important;
+  appearance:slider-vertical!important;
+  writing-mode:vertical-lr!important;
+  direction:rtl!important;
+  width:26px!important;
+  min-width:26px!important;
+  max-width:26px!important;
+  height:118px!important;
+  min-height:118px!important;
+  max-height:118px!important;
+  margin:2px auto!important;
+  padding:0!important;
+  transform:none!important;
+  display:block!important;
+  box-sizing:border-box!important;
+  accent-color:#d6a84e!important;
+  flex:0 0 118px!important;
+}
+
+.notebook-zoom-peek{
+  width:38px!important;
+  height:62px!important;
+  writing-mode:vertical-rl!important;
+  text-orientation:mixed!important;
+  overflow:hidden!important;
+}
+
+/* 3) Reduce notebook page left padding so writing can begin closer to the border */
+.notebook-page{
+  padding-left:34px!important;
+  padding-right:46px!important;
+}
+
+/* Keep vertical breathing space but make the horizontal writing margin paper-like */
+.notebook-writing-area{
+  width:100%!important;
+  padding-left:0!important;
+  margin-left:0!important;
+}
+
+/* Spread view also gets tighter left writing margin */
+.notebook-desk.spread .notebook-page{
+  padding-left:30px!important;
+  padding-right:38px!important;
+}
+
+/* Mobile remains usable */
+@media(max-width:760px){
+  .notebook-page{
+    padding-left:24px!important;
+    padding-right:26px!important;
+  }
+}
+
+
+
+/* ---- Notebook refine phase 4 ---- */
+
+/* 1) Start typing even closer to the left page border */
+.notebook-page{
+  padding-left:22px!important;
+  padding-right:42px!important;
+}
+
+.notebook-desk.spread .notebook-page{
+  padding-left:20px!important;
+  padding-right:34px!important;
+}
+
+.notebook-writing-area{
+  padding-left:0!important;
+  margin-left:0!important;
+}
+
+/* Add a subtle page margin line so the reduced padding still feels intentional */
+.notebook-page::after{
+  content:"";
+  position:absolute;
+  top:42px;
+  bottom:42px;
+  left:18px;
+  width:1px;
+  background:color-mix(in srgb, var(--paper-line) 70%, transparent);
+  pointer-events:none;
+  opacity:.50;
+}
+
+.notebook-desk.spread .notebook-page::after{
+  left:16px;
+}
+
+/* 2) Alignment is now a single compact dropdown */
+.notebook-format-bar select[title="Text alignment"]{
+  min-width:76px!important;
+}
+
+/* 3) More reliable table/image movement */
+.notebook-free-block{
+  touch-action:none!important;
+  cursor:grab!important;
+}
+
+.notebook-free-block:active{
+  cursor:grabbing!important;
+}
+
+.block-drag-handle{
+  pointer-events:auto!important;
+  cursor:grab!important;
+  opacity:1!important;
+}
+
+.notebook-free-block.table-block{
+  cursor:grab!important;
+}
+
+.table-editor{
+  cursor:text!important;
+}
+
+/* Give selected blocks a clearer, draggable frame */
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.48)!important;
+  outline-offset:3px!important;
+}
+
+/* Make image blocks easier to grab */
+.notebook-free-block.image{
+  background:rgba(255,255,255,.035)!important;
+}
+
+.notebook-free-block.image .block-drag-handle,
+.notebook-free-block.table-block .block-drag-handle{
+  opacity:1!important;
+}
+
+/* 4) Two-page writing should feel seamless */
+.notebook-page{
+  pointer-events:auto!important;
+}
+
+.notebook-writing-area{
+  pointer-events:auto!important;
+}
+
+/* 5) Interactive checklist with visible checked state */
+.notebook-checklist{
+  list-style:none!important;
+  padding-left:0!important;
+  margin:0!important;
+}
+
+.notebook-checklist li{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+}
+
+.notebook-checklist label{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-height:32px!important;
+  cursor:pointer!important;
+}
+
+.notebook-checklist input[type="checkbox"]{
+  width:15px!important;
+  height:15px!important;
+  accent-color:#b8892d!important;
+  cursor:pointer!important;
+}
+
+.notebook-checklist input[type="checkbox"]:checked + span{
+  text-decoration:line-through!important;
+  opacity:.62!important;
+}
+
+/* 6) Rename visual scale for Fsc bubble if text is tight */
+.notebook-zoom-rail button{
+  font-size:10px!important;
+}
+
+/* 7) Keep toolbar descriptions below and visible */
+.notebook-format-bar,
+.notebook-insert-bar{
+  overflow:visible!important;
+  z-index:500!important;
+}
+
+.notebook-format-bar button[data-tooltip]:hover::after,
+.notebook-insert-bar button[data-tooltip]:hover::after{
+  top:calc(100% + 10px)!important;
+  bottom:auto!important;
+  z-index:999999!important;
+}
+
+/* Mobile: avoid too-tight edge */
+@media(max-width:760px){
+  .notebook-page{
+    padding-left:18px!important;
+    padding-right:22px!important;
+  }
+
+  .notebook-page::after{
+    left:14px!important;
+  }
+}
+
+
+
+/* ---- Notebook correction phase 5: true paper-like typing ---- */
+
+/* Start text from near top-left corner with only paper-like breathing room. */
+.notebook-page{
+  padding-left:10px!important;
+  padding-right:34px!important;
+  padding-top:24px!important;
+  padding-bottom:42px!important;
+}
+
+/* Move the subtle margin guide closer to edge. */
+.notebook-page::after{
+  left:7px!important;
+  top:24px!important;
+  bottom:36px!important;
+  opacity:.38!important;
+}
+
+.notebook-desk.spread .notebook-page{
+  padding-left:10px!important;
+  padding-right:28px!important;
+  padding-top:24px!important;
+}
+
+.notebook-desk.spread .notebook-page::after{
+  left:7px!important;
+}
+
+/* Writing layer should begin at the top-left of the writable paper area. */
+.notebook-base-writing-area,
+.notebook-writing-area{
+  margin:0!important;
+  padding:0!important;
+  width:100%!important;
+  min-height:calc(100% - 8px)!important;
+  box-sizing:border-box!important;
+  background:transparent!important;
+  background-color:transparent!important;
+}
+
+/* Kill browser/execCommand white background spans and pasted background colours. */
+.notebook-writing-area,
+.notebook-writing-area *,
+.block-editor,
+.block-editor *,
+.table-editor,
+.table-editor *{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Keep intentional highlights visible only through mark/background generated by hiliteColor.
+   This prevents accidental white highlight blocks after page shade changes. */
+.notebook-writing-area span[style*="background-color: rgb(255, 255, 255)"],
+.notebook-writing-area font[style*="background-color: rgb(255, 255, 255)"],
+.notebook-writing-area span[style*="background-color: white"],
+.notebook-writing-area font[style*="background-color: white"]{
+  background-color:transparent!important;
+}
+
+/* Strict rhythm: text sits on the same 32px pitch as ruling/grid. */
+.notebook-writing-area{
+  line-height:32px!important;
+  font-size:18px!important;
+  padding-top:0!important;
+}
+
+.notebook-writing-area div,
+.notebook-writing-area p,
+.notebook-writing-area li{
+  margin:0!important;
+  padding:0!important;
+  min-height:32px!important;
+  height:auto!important;
+  line-height:32px!important;
+}
+
+/* More line-like alignment for lists and checklists. */
+.notebook-writing-area ul,
+.notebook-writing-area ol{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  padding-left:28px!important;
+}
+
+.notebook-checklist{
+  margin:0!important;
+  padding-left:0!important;
+  list-style:none!important;
+}
+
+.notebook-checklist li,
+.notebook-checklist label{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+.notebook-checklist label{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+
+.notebook-checklist input[type="checkbox"]{
+  width:15px!important;
+  height:15px!important;
+  accent-color:#b8892d!important;
+}
+
+.notebook-checklist input[type="checkbox"]:checked + span{
+  text-decoration:line-through!important;
+  opacity:.62!important;
+}
+
+/* Two-page view: both pages must accept direct writing clicks. */
+.notebook-desk.spread .notebook-page{
+  pointer-events:auto!important;
+}
+
+.notebook-desk.spread .notebook-writing-area{
+  pointer-events:auto!important;
+  min-height:730px!important;
+}
+
+/* Remove text-box cursor cues from old free text model. */
+.notebook-free-block.text-block{
+  display:none!important;
+}
+
+/* Exit fullscreen wording button remains visually consistent. */
+.notebook-exit-presenter{
+  min-width:132px!important;
+}
+
+/* Keep black pages clean: no white boxes behind typed text. */
+.notebook-page.black .notebook-writing-area,
+.notebook-page.black .notebook-writing-area *,
+.notebook-page.black .notebook-checklist,
+.notebook-page.black .notebook-checklist *{
+  color:#f5dfb4!important;
+  background-color:transparent!important;
+}
+
+@media(max-width:760px){
+  .notebook-page{
+    padding-left:8px!important;
+    padding-right:18px!important;
+    padding-top:20px!important;
+  }
+
+  .notebook-page::after{
+    left:6px!important;
+  }
+}
+
+
+
+/* ---- Explicit notebook text box tool ---- */
+
+/* Re-enable text boxes only when inserted intentionally through Insert → Text box */
+.notebook-free-block.text-block{
+  display:block!important;
+  background:rgba(255,255,255,.055)!important;
+  border:1px solid rgba(176,138,71,.18)!important;
+  padding:10px 12px!important;
+}
+
+.notebook-free-block.text-block.selected{
+  border-color:rgba(214,168,78,.62)!important;
+  background:rgba(255,255,255,.075)!important;
+}
+
+.text-box-editor{
+  width:100%!important;
+  min-height:100%!important;
+  outline:0!important;
+  cursor:text!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+  color:var(--notebook-ink)!important;
+  background:transparent!important;
+  line-height:32px!important;
+  white-space:pre-wrap!important;
+  overflow-wrap:anywhere!important;
+}
+
+.text-box-editor:empty::before{
+  content:attr(data-placeholder);
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent);
+  pointer-events:none;
+}
+
+.notebook-page.black .text-box-editor,
+.notebook-page.black .text-box-editor *{
+  color:#f5dfb4!important;
+  background:transparent!important;
+}
+
+.notebook-free-block.text-block .block-drag-handle{
+  opacity:1!important;
+}
+
+
+
+/* ---- Text box typing fix ---- */
+
+.notebook-free-block.text-block{
+  cursor:default!important;
+  pointer-events:auto!important;
+}
+
+.notebook-free-block.text-block .text-box-editor{
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+  cursor:text!important;
+  min-height:100%!important;
+  position:relative!important;
+  z-index:3!important;
+}
+
+.notebook-free-block.text-block .block-drag-handle{
+  cursor:grab!important;
+  pointer-events:auto!important;
+  z-index:8!important;
+}
+
+.notebook-free-block.text-block .block-resize{
+  pointer-events:auto!important;
+  z-index:8!important;
+}
+
+.text-box-editor:focus{
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px rgba(214,168,78,.24)!important;
+}
+
+
+/* ---- Fix duplicate text-box placeholder ---- */
+
+/* Disable generic block placeholder for text boxes */
+.notebook-free-block.text-block .block-editor:empty::before{
+  content:none!important;
+}
+
+/* Keep only the intended text-box placeholder */
+.notebook-free-block.text-block .text-box-editor:empty::before{
+  content:attr(data-placeholder)!important;
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+  pointer-events:none!important;
+}
+
+
+
+/* ---- Safe text box + notebook jacket/edit refinements ---- */
+
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  min-height:100%!important;
+  height:100%!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow:auto!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+}
+
+.text-box-editor::placeholder{
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+}
+
+.notebook-free-block.text-block .block-editor:empty::before,
+.notebook-free-block.text-block .text-box-editor:empty::before{
+  content:none!important;
+}
+
+.notebook-free-block.text-block{
+  padding:10px 12px!important;
+}
+
+.notebook-floating-head > div{
+  position:relative;
+  display:grid;
+  gap:2px;
+}
+
+.notebook-title-edit{
+  position:absolute;
+  right:-72px;
+  top:0;
+  border:1px solid rgba(176,138,71,.22);
+  border-radius:999px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+.notebook-editor-shell.cover-oxblood{
+  background:radial-gradient(circle at 20% 10%, rgba(120,28,42,.26), transparent 35%), linear-gradient(135deg, #2b0d13, #11070a)!important;
+}
+
+.notebook-editor-shell.cover-forest{
+  background:radial-gradient(circle at 20% 10%, rgba(42,94,63,.24), transparent 35%), linear-gradient(135deg, #102018, #070e0a)!important;
+}
+
+.notebook-editor-shell.cover-midnight{
+  background:radial-gradient(circle at 20% 10%, rgba(44,68,120,.24), transparent 35%), linear-gradient(135deg, #111727, #070910)!important;
+}
+
+.notebook-editor-shell.cover-kraft{
+  background:radial-gradient(circle at 20% 10%, rgba(184,124,66,.26), transparent 35%), linear-gradient(135deg, #4e2f19, #160c06)!important;
+}
+
+.notebook-editor-shell.cover-indigo{
+  background:radial-gradient(circle at 20% 10%, rgba(53,64,145,.25), transparent 35%), linear-gradient(135deg, #171b46, #090b1c)!important;
+}
+
+.notebook-editor-shell.cover-pattachitra{
+  background:radial-gradient(circle at 20% 10%, rgba(180,63,35,.22), transparent 35%), linear-gradient(135deg, #4a1e12, #130907)!important;
+}
+
+.notebook-editor-shell.cover-cream{
+  background:radial-gradient(circle at 20% 10%, rgba(234,216,173,.20), transparent 35%), linear-gradient(135deg, #5d4227, #1c1209)!important;
+}
+
+
+
+/* ---- Edit notebook modal + block deletion polish ---- */
+
+.notebook-creator-modal{
+  animation:notebookModalIn .18s ease both;
+}
+
+@keyframes notebookModalIn{
+  from{opacity:0; transform:translateY(8px) scale(.985)}
+  to{opacity:1; transform:translateY(0) scale(1)}
+}
+
+.block-mini-tools{
+  top:-38px!important;
+  right:0!important;
+  z-index:120!important;
+  padding:5px!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.90)!important;
+  border:1px solid rgba(176,138,71,.22)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+}
+
+.block-mini-tools button{
+  border:1px solid rgba(176,138,71,.26)!important;
+  border-radius:999px!important;
+  background:rgba(146,42,35,.20)!important;
+  color:#ffd9c8!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  padding:5px 10px!important;
+  cursor:pointer!important;
+}
+
+.block-mini-tools button:hover{
+  border-color:rgba(255,160,128,.50)!important;
+  background:rgba(146,42,35,.34)!important;
+}
+
+/* Make selected blocks clearly deletable/selectable */
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.58)!important;
+  outline-offset:3px!important;
+}
+
+.notebook-free-block.selected::before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border-radius:15px;
+  border:1px dashed rgba(214,168,78,.36);
+  pointer-events:none;
+}
+
+
+
+/* ---- Notebook edit modal refinement ---- */
+
+.notebook-creator-modal select,
+.notebook-creator-modal input{
+  font-weight:700;
+}
+
+
+
+/* ---- Phase 6 notebook block/textbox fixes ---- */
+
+/* Notebook title can be renamed by double-clicking the title itself */
+.notebook-title-inline-edit{
+  cursor:text;
+  border-radius:8px;
+  padding:1px 4px;
+  margin-left:-4px;
+}
+
+.notebook-title-inline-edit:hover{
+  background:rgba(252,220,139,.10);
+  box-shadow:0 0 0 1px rgba(252,220,139,.18);
+}
+
+/* Remove visible Rename button if any older patch left it in the UI */
+.notebook-title-edit{
+  display:none!important;
+}
+
+/* Text box: textarea only, no inherited generic block placeholders */
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow:auto!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+}
+
+.text-box-editor::placeholder{
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+}
+
+/* Absolutely suppress duplicate placeholders from older .block-editor rules */
+.notebook-free-block.text-block .block-editor:empty::before,
+.notebook-free-block.text-block .text-box-editor:empty::before,
+.text-box-editor:empty::before{
+  content:none!important;
+}
+
+/* Clicking away should remove the selected-outline visual */
+.notebook-free-block{
+  outline:none;
+}
+
+.notebook-free-block:not(.selected){
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
+
+.notebook-free-block:not(.selected)::before{
+  content:none!important;
+}
+
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.58)!important;
+  outline-offset:3px!important;
+}
+
+/* Image insertion/visibility */
+.notebook-image-block{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:contain!important;
+  pointer-events:none!important;
+  user-select:none!important;
+}
+
+.notebook-free-block.image{
+  min-width:120px!important;
+  min-height:90px!important;
+  background:rgba(255,255,255,.035)!important;
+}
+
+/* Keep delete mini-tool available only while selected */
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+}
+
+
+
+/* ---- Hard fix: image/textbox/selection behaviour ---- */
+
+/* Text boxes are textarea-only. No pseudo-placeholder or inherited contentEditable styles. */
+.notebook-free-block.text-block{
+  display:block!important;
+  padding:10px 12px!important;
+  cursor:default!important;
+}
+
+.notebook-free-block.text-block .text-box-editor{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow:auto!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+}
+
+.notebook-free-block.text-block .text-box-editor::before,
+.notebook-free-block.text-block .text-box-editor:empty::before,
+.notebook-free-block.text-block .block-editor::before,
+.notebook-free-block.text-block .block-editor:empty::before{
+  content:none!important;
+}
+
+.notebook-free-block.text-block .text-box-editor::placeholder{
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+}
+
+/* Image blocks must be visible, selectable, and resizable */
+.notebook-free-block.image{
+  display:block!important;
+  min-width:120px!important;
+  min-height:90px!important;
+  background:rgba(255,255,255,.055)!important;
+  border:1px solid rgba(176,138,71,.16)!important;
+}
+
+.notebook-image-block{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  pointer-events:none!important;
+  user-select:none!important;
+}
+
+/* Selection should vanish when selected state clears */
+.notebook-free-block:not(.selected){
+  outline:none!important;
+  box-shadow:none!important;
+  border-color:transparent!important;
+}
+
+.notebook-free-block:not(.selected)::before,
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+  content:none!important;
+}
+
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.58)!important;
+  outline-offset:3px!important;
+}
+
+
+
+/* ---- Restore notebook table/image branch visibility ---- */
+
+.notebook-free-block.table-block,
+.notebook-free-block.image,
+.notebook-free-block.text-block{
+  display:block!important;
+}
+
+.table-editor{
+  width:100%!important;
+  min-height:100%!important;
+  outline:0!important;
+  cursor:text!important;
+  pointer-events:auto!important;
+  direction:ltr!important;
+  unicode-bidi:normal!important;
+}
+
+.notebook-image-block{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  pointer-events:none!important;
+  user-select:none!important;
+}
+
+.notebook-free-block.image{
+  min-width:120px!important;
+  min-height:90px!important;
+  background:rgba(255,255,255,.055)!important;
+  border:1px solid rgba(176,138,71,.16)!important;
+}
+
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow:auto!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+}
+
+.notebook-free-block:not(.selected){
+  outline:none!important;
+  box-shadow:none!important;
+}
+
+.notebook-free-block:not(.selected)::before,
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+  content:none!important;
+}
+
+
+
+/* ---- Notebook inserted-content deletion, wrapping, and formatting fix ---- */
+
+/* Text boxes are contentEditable again so toolbar formatting applies. */
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  min-height:100%!important;
+  height:auto!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  white-space:pre-wrap!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+}
+
+/* Placeholder for contentEditable textbox */
+.text-box-editor:empty::before{
+  content:attr(data-placeholder)!important;
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+  pointer-events:none!important;
+}
+
+/* Avoid duplicate placeholder from old block-editor rules */
+.notebook-free-block.text-block .block-editor:empty::before{
+  content:none!important;
+}
+
+/* Long strings must stay inside the text box. */
+.notebook-free-block.text-block{
+  overflow:hidden!important;
+}
+
+.notebook-free-block.text-block .text-box-editor,
+.notebook-free-block.text-block .text-box-editor *{
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  white-space:pre-wrap!important;
+}
+
+/* Resizing the block expands the usable text area. */
+.notebook-free-block.text-block.selected{
+  min-width:120px!important;
+  min-height:54px!important;
+}
+
+/* Selected inserted content should clearly expose Delete */
+.block-mini-tools{
+  display:flex!important;
+  z-index:150!important;
+}
+
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+}
+
+.block-mini-tools button{
+  cursor:pointer!important;
+}
+
+/* Ensure selected image/table/textbox can receive key events through focusable shell. */
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.62)!important;
+  outline-offset:3px!important;
+}
+
+/* Black page text boxes */
+.notebook-page.black .text-box-editor,
+.notebook-page.black .text-box-editor *{
+  color:#f5dfb4!important;
+  background:transparent!important;
+}
+
+
+
+/* ---- Text box drag + selected block delete fix ---- */
+
+/* The shell must be focusable so Delete/Backspace can remove selected blocks. */
+.notebook-editor-shell{
+  outline:none!important;
+}
+
+/* Text boxes: editing area remains typeable, block handle/frame remains draggable. */
+.notebook-free-block.text-block{
+  cursor:default!important;
+  pointer-events:auto!important;
+}
+
+.notebook-free-block.text-block.selected{
+  cursor:default!important;
+}
+
+/* Drag handle must be visible and usable for text boxes, tables and images. */
+.block-drag-handle{
+  pointer-events:auto!important;
+  cursor:grab!important;
+  opacity:1!important;
+  z-index:30!important;
+  user-select:none!important;
+}
+
+.block-drag-handle:active{
+  cursor:grabbing!important;
+}
+
+/* Make it easier to grab the text box by its outer frame without blocking text editing. */
+.notebook-free-block.text-block{
+  border:1px solid rgba(176,138,71,.18)!important;
+}
+
+.notebook-free-block.text-block.selected{
+  border-color:rgba(214,168,78,.62)!important;
+}
+
+/* Text editing remains normal inside the text box. */
+.text-box-editor{
+  cursor:text!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+}
+
+/* Resize handle stays above text area. */
+.block-resize{
+  pointer-events:auto!important;
+  z-index:35!important;
+}
+
+/* Stronger selected cue so user knows Delete/Backspace targets the whole object. */
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.70)!important;
+  outline-offset:3px!important;
+}
+
+.notebook-free-block.selected::after{
+  content:"Selected";
+  position:absolute;
+  left:0;
+  top:-31px;
+  z-index:28;
+  border:1px solid rgba(176,138,71,.24);
+  border-radius:999px;
+  background:rgba(31,18,11,.88);
+  color:#f4dfb9;
+  padding:4px 8px;
+  font-size:10px;
+  font-weight:900;
+  pointer-events:none;
+}
+
+/* Mini delete button remains reliable. */
+.block-mini-tools{
+  pointer-events:auto!important;
+  z-index:40!important;
+}
+
+.block-mini-tools button{
+  pointer-events:auto!important;
+}
+
+
+
+/* ---- Safe repair: text box drag/delete/format ---- */
+
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  min-height:100%!important;
+  height:auto!important;
+  border:0!important;
+  outline:0!important;
+  resize:none!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  padding:0!important;
+  margin:0!important;
+  cursor:text!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  white-space:pre-wrap!important;
+  pointer-events:auto!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+}
+
+.text-box-editor:empty::before{
+  content:attr(data-placeholder)!important;
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+  pointer-events:none!important;
+}
+
+.notebook-free-block.text-block .block-editor:empty::before{
+  content:none!important;
+}
+
+.notebook-free-block.text-block{
+  overflow:hidden!important;
+  cursor:default!important;
+  border:1px solid rgba(176,138,71,.20)!important;
+}
+
+.notebook-free-block.text-block.selected{
+  border-color:rgba(214,168,78,.70)!important;
+}
+
+.block-drag-handle{
+  position:absolute!important;
+  left:-22px!important;
+  top:0!important;
+  width:20px!important;
+  height:34px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(176,138,71,.28)!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.88)!important;
+  color:#f4dfb9!important;
+  font-size:10px!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  cursor:grab!important;
+  z-index:90!important;
+  user-select:none!important;
+  padding:0!important;
+}
+
+.block-drag-handle:active{
+  cursor:grabbing!important;
+}
+
+.block-resize{
+  pointer-events:auto!important;
+  z-index:95!important;
+}
+
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.72)!important;
+  outline-offset:3px!important;
+}
+
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+}
+
+.block-mini-tools{
+  pointer-events:auto!important;
+  z-index:110!important;
+}
+
+.block-mini-tools button{
+  pointer-events:auto!important;
+  cursor:pointer!important;
+}
+
+.notebook-page.black .text-box-editor,
+.notebook-page.black .text-box-editor *{
+  color:#f5dfb4!important;
+  background:transparent!important;
+}
+
+
+
+/* ---- Clean notebook solution: page boundaries, spread view, active editors, blocks ---- */
+
+.notebook-editor-shell{
+  outline:none!important;
+}
+
+.notebook-page{
+  position:relative!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(92,57,22,.22)!important;
+  box-shadow:
+    0 34px 90px rgba(0,0,0,.42),
+    inset 0 0 0 1px rgba(255,255,255,.24),
+    inset 0 1px 0 rgba(255,255,255,.45)!important;
+  padding:24px 34px 42px 10px!important;
+}
+
+.notebook-page::after{
+  left:7px!important;
+  top:24px!important;
+  bottom:36px!important;
+  opacity:.38!important;
+}
+
+.notebook-page-stack{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:28px!important;
+  transform:scale(var(--notebook-zoom, 1))!important;
+  transform-origin:center center!important;
+}
+
+.notebook-desk.single .notebook-page-stack{
+  justify-content:center!important;
+}
+
+.notebook-desk.spread .notebook-page-stack{
+  justify-content:center!important;
+  gap:26px!important;
+}
+
+.notebook-desk.single .notebook-page{
+  width:min(760px, calc(100vw - 210px))!important;
+  min-height:920px!important;
+}
+
+.notebook-desk.spread .notebook-page{
+  width:min(610px, calc((100vw - 250px) / 2))!important;
+  min-height:860px!important;
+  padding-left:10px!important;
+  padding-right:28px!important;
+}
+
+.notebook-page-editor{
+  position:relative!important;
+  z-index:3!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:790px!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  outline:0!important;
+  background:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  line-height:32px!important;
+  white-space:pre-wrap!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+  writing-mode:horizontal-tb!important;
+  cursor:text!important;
+}
+
+.notebook-desk.spread .notebook-page-editor{
+  min-height:730px!important;
+}
+
+.notebook-page-editor:empty::before{
+  content:attr(data-placeholder)!important;
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+  pointer-events:none!important;
+}
+
+.notebook-page-editor div,
+.notebook-page-editor p,
+.notebook-page-editor li{
+  margin:0!important;
+  padding:0!important;
+  min-height:32px!important;
+  line-height:32px!important;
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  background:transparent!important;
+}
+
+.notebook-page-editor *,
+.text-box-editor *,
+.table-editor *{
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+}
+
+.notebook-page-editor,
+.notebook-page-editor *,
+.text-box-editor,
+.text-box-editor *,
+.table-editor,
+.table-editor *{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+.notebook-page.black .notebook-page-editor,
+.notebook-page.black .notebook-page-editor *,
+.notebook-page.black .text-box-editor,
+.notebook-page.black .text-box-editor *,
+.notebook-page.black .table-editor,
+.notebook-page.black .table-editor *{
+  color:#f5dfb4!important;
+  background-color:transparent!important;
+}
+
+.notebook-free-block{
+  position:absolute!important;
+  z-index:38!important;
+  min-width:120px!important;
+  min-height:54px!important;
+  box-sizing:border-box!important;
+  border:1px solid transparent!important;
+  border-radius:12px!important;
+  color:var(--notebook-ink)!important;
+  background:transparent!important;
+}
+
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.72)!important;
+  outline-offset:3px!important;
+  border-color:rgba(214,168,78,.58)!important;
+  background:rgba(255,255,255,.045)!important;
+}
+
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+}
+
+.block-drag-handle{
+  position:absolute!important;
+  left:-22px!important;
+  top:0!important;
+  width:20px!important;
+  height:34px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(176,138,71,.28)!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.88)!important;
+  color:#f4dfb9!important;
+  font-size:10px!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  cursor:grab!important;
+  z-index:90!important;
+  user-select:none!important;
+  padding:0!important;
+}
+
+.block-drag-handle:active{
+  cursor:grabbing!important;
+}
+
+.text-box-editor{
+  display:block!important;
+  width:100%!important;
+  min-height:100%!important;
+  height:auto!important;
+  padding:0!important;
+  margin:0!important;
+  outline:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--notebook-ink)!important;
+  font:500 18px/32px Georgia, serif!important;
+  white-space:pre-wrap!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+  cursor:text!important;
+  direction:ltr!important;
+  unicode-bidi:plaintext!important;
+}
+
+.text-box-editor:empty::before{
+  content:attr(data-placeholder)!important;
+  color:color-mix(in srgb, var(--notebook-ink) 42%, transparent)!important;
+  pointer-events:none!important;
+}
+
+.table-editor{
+  width:100%!important;
+  min-height:100%!important;
+  outline:0!important;
+  cursor:text!important;
+}
+
+.notebook-table-block-table{
+  width:100%!important;
+  height:100%!important;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+  border:2px solid color-mix(in srgb, var(--paper-line) 70%, var(--notebook-ink) 30%)!important;
+  border-radius:12px!important;
+  overflow:hidden!important;
+  background:rgba(255,255,255,.10)!important;
+}
+
+.notebook-table-block-table td{
+  border-right:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  border-bottom:1.5px solid color-mix(in srgb, var(--paper-line) 72%, var(--notebook-ink) 28%)!important;
+  min-width:72px!important;
+  min-height:32px!important;
+  padding:8px 10px!important;
+  vertical-align:top!important;
+  outline:0!important;
+  cursor:text!important;
+}
+
+.notebook-image-block{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  pointer-events:none!important;
+  user-select:none!important;
+}
+
+.notebook-free-block.image{
+  min-width:120px!important;
+  min-height:90px!important;
+  background:rgba(255,255,255,.055)!important;
+  border:1px solid rgba(176,138,71,.16)!important;
+}
+
+.block-resize{
+  position:absolute!important;
+  right:-7px!important;
+  bottom:-7px!important;
+  width:15px!important;
+  height:15px!important;
+  border-radius:999px!important;
+  background:rgba(214,168,78,.96)!important;
+  box-shadow:0 4px 12px rgba(0,0,0,.28)!important;
+  cursor:nwse-resize!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  z-index:95!important;
+}
+
+.block-mini-tools{
+  position:absolute!important;
+  right:0!important;
+  top:-38px!important;
+  display:flex!important;
+  z-index:110!important;
+  padding:5px!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.90)!important;
+  border:1px solid rgba(176,138,71,.22)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+  pointer-events:auto!important;
+}
+
+.block-mini-tools button{
+  border:1px solid rgba(176,138,71,.26)!important;
+  border-radius:999px!important;
+  background:rgba(146,42,35,.20)!important;
+  color:#ffd9c8!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  padding:5px 10px!important;
+  cursor:pointer!important;
+}
+
+.notebook-checklist{
+  list-style:none!important;
+  margin:0!important;
+  padding-left:0!important;
+}
+
+.notebook-checklist li,
+.notebook-checklist label{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+.notebook-checklist label{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+
+.notebook-checklist input[type="checkbox"]{
+  width:15px!important;
+  height:15px!important;
+  accent-color:#b8892d!important;
+}
+
+.notebook-checklist input[type="checkbox"]:checked + span{
+  text-decoration:line-through!important;
+  opacity:.62!important;
+}
+
+@media(max-width:900px){
+  .notebook-desk.single .notebook-page,
+  .notebook-desk.spread .notebook-page{
+    width:calc(100vw - 104px)!important;
+  }
+
+  .notebook-page-stack{
+    flex-direction:column!important;
+    align-items:center!important;
+  }
+}
+
+
+
+/* ---- Incremental notebook polish: ruling snap + selected controls ---- */
+
+/* 1) Make page-level writing sit on the ruling/grid rhythm.
+   The paper backgrounds use a 32px rhythm, so typed lines must share that pitch. */
+.notebook-page-editor{
+  font-size:18px!important;
+  line-height:32px!important;
+  padding-top:0!important;
+  transform:translateY(-1px);
+}
+
+/* Every generated line/block in the main page editor follows the same 32px pitch. */
+.notebook-page-editor div,
+.notebook-page-editor p,
+.notebook-page-editor li{
+  min-height:32px!important;
+  height:auto!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Lists/checklists should also occupy the ruling rhythm cleanly. */
+.notebook-page-editor ul,
+.notebook-page-editor ol{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  padding-left:28px!important;
+}
+
+.notebook-page-editor li{
+  padding-top:0!important;
+  padding-bottom:0!important;
+}
+
+/* Ruled pages: align text slightly below each line, like handwriting on a ruled sheet. */
+.notebook-page.ruled .notebook-page-editor{
+  line-height:32px!important;
+  background-position:0 0!important;
+}
+
+/* Square/dotted pages: keep the same baseline rhythm so text tracks the grid rows. */
+.notebook-page.square .notebook-page-editor,
+.notebook-page.dotted .notebook-page-editor{
+  line-height:32px!important;
+}
+
+/* Plain pages still use the same rhythm so switching page type does not disturb typing. */
+.notebook-page.plain .notebook-page-editor{
+  line-height:32px!important;
+}
+
+/* Text boxes should also honour the paper rhythm, but without fighting selected formatting. */
+.text-box-editor{
+  line-height:32px!important;
+}
+
+.text-box-editor div,
+.text-box-editor p,
+.text-box-editor li{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+}
+
+/* 2) Hide drag/resize controls unless the inserted content is selected.
+   This applies to images, text boxes, and tables. */
+.notebook-free-block .block-drag-handle,
+.notebook-free-block .block-resize{
+  opacity:0!important;
+  pointer-events:none!important;
+  transition:opacity .14s ease;
+}
+
+.notebook-free-block.selected .block-drag-handle,
+.notebook-free-block.selected .block-resize{
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+
+/* Optional gentle hover hint: show very faintly on hover, fully on selection. */
+.notebook-free-block:hover .block-drag-handle,
+.notebook-free-block:hover .block-resize{
+  opacity:.28!important;
+  pointer-events:auto!important;
+}
+
+.notebook-free-block.selected:hover .block-drag-handle,
+.notebook-free-block.selected:hover .block-resize{
+  opacity:1!important;
+}
+
+/* 3) Remove any “Selected” bubble from earlier patches. */
+.notebook-free-block.selected::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Keep selected state visible only through the outline and mini delete toolbar. */
+.notebook-free-block.selected{
+  outline:2px solid rgba(214,168,78,.62)!important;
+  outline-offset:3px!important;
+}
+
+/* The mini Delete toolbar should appear only for selected content. */
+.notebook-free-block:not(.selected) .block-mini-tools{
+  display:none!important;
+}
+
+.notebook-free-block.selected .block-mini-tools{
+  display:flex!important;
+}
+
+
+
+/* ---- Notebook cursor visibility, true line rhythm, and image controls fix ---- */
+
+/* 1) Make the page editor easier to navigate. */
+.notebook-page-editor{
+  caret-color:#8a5b17!important;
+  cursor:text!important;
+  outline:none!important;
+  -webkit-user-select:text!important;
+  user-select:text!important;
+}
+
+/* Show a subtle active writing surface when the user is typing on the page. */
+.notebook-page-editor:focus{
+  box-shadow:inset 0 0 0 1px rgba(184,137,45,.18)!important;
+  border-radius:10px!important;
+}
+
+/* Add a soft active-line feel using selection colour. */
+.notebook-page-editor::selection,
+.notebook-page-editor *::selection,
+.text-box-editor::selection,
+.text-box-editor *::selection{
+  background:rgba(184,137,45,.28)!important;
+  color:inherit!important;
+}
+
+/* 2) Stronger snap-to-ruling system.
+   The page background line pitch is 32px, so all text blocks must be forced to 32px.
+   We also nudge the editor baseline slightly to sit visually on the ruled line. */
+.notebook-page-editor{
+  font-size:18px!important;
+  line-height:32px!important;
+  padding-top:6px!important;
+  transform:none!important;
+  vertical-align:baseline!important;
+}
+
+/* All generated lines from contentEditable must be exactly one ruling cell high. */
+.notebook-page-editor > div,
+.notebook-page-editor > p{
+  display:block!important;
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* If browser creates nested spans/fonts, do not let them disturb the line box. */
+.notebook-page-editor span,
+.notebook-page-editor font,
+.notebook-page-editor b,
+.notebook-page-editor strong,
+.notebook-page-editor i,
+.notebook-page-editor u{
+  line-height:inherit!important;
+}
+
+/* Lists and checklist items must also sit on the notebook pitch. */
+.notebook-page-editor ul,
+.notebook-page-editor ol{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  padding-left:30px!important;
+}
+
+.notebook-page-editor li{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+}
+
+/* Ruled page: place the text baseline consistently just above the visual line. */
+.notebook-page.ruled .notebook-page-editor{
+  padding-top:5px!important;
+}
+
+/* Dotted and square page: align to row rhythm without extra top drift. */
+.notebook-page.dotted .notebook-page-editor,
+.notebook-page.square .notebook-page-editor{
+  padding-top:5px!important;
+}
+
+/* Plain pages use the same rhythm so switching page style does not reflow writing. */
+.notebook-page.plain .notebook-page-editor{
+  padding-top:5px!important;
+}
+
+/* Text boxes should follow the same rhythm when used for written notes. */
+.text-box-editor{
+  caret-color:#8a5b17!important;
+  font-size:18px!important;
+  line-height:32px!important;
+}
+
+.text-box-editor > div,
+.text-box-editor > p{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* 3) Force image/table/text block handles to remain hidden unless selected.
+   Older rules used high specificity for images, so this section is intentionally stronger. */
+.notebook-free-block .block-drag-handle,
+.notebook-free-block .block-resize,
+.notebook-free-block.image .block-drag-handle,
+.notebook-free-block.image .block-resize,
+.notebook-free-block.table-block .block-drag-handle,
+.notebook-free-block.table-block .block-resize,
+.notebook-free-block.text-box .block-drag-handle,
+.notebook-free-block.text-box .block-resize,
+.notebook-free-block.text-block .block-drag-handle,
+.notebook-free-block.text-block .block-resize{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+/* Reveal controls only when object is selected. */
+.notebook-free-block.selected .block-drag-handle,
+.notebook-free-block.selected .block-resize,
+.notebook-free-block.image.selected .block-drag-handle,
+.notebook-free-block.image.selected .block-resize,
+.notebook-free-block.table-block.selected .block-drag-handle,
+.notebook-free-block.table-block.selected .block-resize,
+.notebook-free-block.text-box.selected .block-drag-handle,
+.notebook-free-block.text-box.selected .block-resize,
+.notebook-free-block.text-block.selected .block-drag-handle,
+.notebook-free-block.text-block.selected .block-resize{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+
+/* Disable hover reveal for images specifically, since the image control was staying visible. */
+.notebook-free-block.image:hover .block-drag-handle,
+.notebook-free-block.image:hover .block-resize{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+.notebook-free-block.image.selected:hover .block-drag-handle,
+.notebook-free-block.image.selected:hover .block-resize{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+
+/* Mini delete toolbar also only for selected content. */
+.notebook-free-block:not(.selected) .block-mini-tools,
+.notebook-free-block.image:not(.selected) .block-mini-tools{
+  display:none!important;
+  visibility:hidden!important;
+}
+
+.notebook-free-block.selected .block-mini-tools,
+.notebook-free-block.image.selected .block-mini-tools{
+  display:flex!important;
+  visibility:visible!important;
+}
+
+/* Remove any selected label/bubble from earlier rules. */
+.notebook-free-block.selected::after{
+  content:none!important;
+  display:none!important;
+}
+
+
+
+/* ---- Notebook caret, text selection, ruling baseline, and spread pairing fix ---- */
+
+/* Page-level editor must behave like a proper text editor. */
+.notebook-page-editor{
+  caret-color:#111111!important;
+  cursor:text!important;
+  user-select:text!important;
+  -webkit-user-select:text!important;
+  -moz-user-select:text!important;
+  outline:none!important;
+  color:var(--notebook-ink)!important;
+}
+
+/* Black paper needs a light caret. */
+.notebook-page.black .notebook-page-editor{
+  caret-color:#f5dfb4!important;
+}
+
+/* Make text selection highly visible. */
+.notebook-page-editor::selection,
+.notebook-page-editor *::selection,
+.text-box-editor::selection,
+.text-box-editor *::selection{
+  background:rgba(184,137,45,.34)!important;
+  color:inherit!important;
+}
+
+/* A focused page gets a subtle active writing surface, without hiding the caret. */
+.notebook-page-editor:focus{
+  box-shadow:inset 0 0 0 1px rgba(184,137,45,.22)!important;
+  border-radius:10px!important;
+}
+
+/* Better baseline alignment:
+   32px is the notebook line pitch. Text is nudged down so its baseline sits just above the ruling line. */
+.notebook-page-editor{
+  font-size:18px!important;
+  line-height:32px!important;
+  padding-top:7px!important;
+  transform:none!important;
+}
+
+/* Direct children are the real notebook lines. */
+.notebook-page-editor > div,
+.notebook-page-editor > p{
+  display:block!important;
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Inline formatting should not break line rhythm. */
+.notebook-page-editor span,
+.notebook-page-editor font,
+.notebook-page-editor b,
+.notebook-page-editor strong,
+.notebook-page-editor i,
+.notebook-page-editor u{
+  line-height:inherit!important;
+}
+
+/* Lists follow the same 32px notebook rhythm. */
+.notebook-page-editor ul,
+.notebook-page-editor ol{
+  margin-top:0!important;
+  margin-bottom:0!important;
+  padding-left:30px!important;
+}
+
+.notebook-page-editor li{
+  min-height:32px!important;
+  line-height:32px!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Place text just above ruled/square/dotted rows. */
+.notebook-page.ruled .notebook-page-editor,
+.notebook-page.square .notebook-page-editor,
+.notebook-page.dotted .notebook-page-editor{
+  padding-top:7px!important;
+}
+
+/* Plain pages keep the same rhythm for consistent switching. */
+.notebook-page.plain .notebook-page-editor{
+  padding-top:7px!important;
+}
+
+/* Spread view: odd/even pairing now controlled by logic, CSS ensures stable side-by-side layout. */
+.notebook-desk.spread .notebook-page-stack{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:26px!important;
+}
+
+.notebook-desk.spread .notebook-page{
+  flex:0 0 auto!important;
+  width:min(610px, calc((100vw - 250px) / 2))!important;
+  min-height:860px!important;
+}
+
+/* In mobile/narrow width, stack pages vertically even in spread for usability. */
+@media(max-width:900px){
+  .notebook-desk.spread .notebook-page-stack{
+    flex-direction:column!important;
+    align-items:center!important;
+  }
+}
+
+/* Prevent old rules from disabling selection in the page editor. */
+.notebook-page,
+.notebook-page *{
+  -webkit-touch-callout:default;
+}
+
+.notebook-page-editor,
+.notebook-page-editor *{
+  pointer-events:auto!important;
+}
+
+
+
+/* ---- Stable notebook page canvas: prevent reflow between 1p and 2p ---- */
+
+/*
+  Core rule:
+  A notebook page must always have the same internal coordinate system.
+  Single/spread view may scale the page visually, but must not change page width,
+  padding, line pitch, or block coordinates.
+*/
+
+.notebook-page{
+  width:760px!important;
+  min-width:760px!important;
+  max-width:760px!important;
+  min-height:920px!important;
+  height:920px!important;
+  box-sizing:border-box!important;
+  flex:0 0 760px!important;
+  overflow:hidden!important;
+}
+
+/* The writing area also remains stable in both modes. */
+.notebook-page-editor{
+  width:100%!important;
+  max-width:100%!important;
+  min-height:850px!important;
+  box-sizing:border-box!important;
+}
+
+/* Single and spread modes must not redefine page dimensions. */
+.notebook-desk.single .notebook-page,
+.notebook-desk.spread .notebook-page{
+  width:760px!important;
+  min-width:760px!important;
+  max-width:760px!important;
+  flex-basis:760px!important;
+  min-height:920px!important;
+  height:920px!important;
+}
+
+/* Keep padding identical across 1p and 2p views. */
+.notebook-desk.single .notebook-page,
+.notebook-desk.spread .notebook-page{
+  padding:24px 34px 42px 10px!important;
+}
+
+/* Page stack becomes a stable canvas row. */
+.notebook-page-stack{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:28px!important;
+  transform-origin:center top!important;
+}
+
+/* Single page: no reflow, same page canvas. */
+.notebook-desk.single .notebook-page-stack{
+  flex-direction:row!important;
+}
+
+/* Spread view: same pages, side by side. */
+.notebook-desk.spread .notebook-page-stack{
+  flex-direction:row!important;
+  gap:28px!important;
+}
+
+/* Inserted blocks render against the stable page coordinate system. */
+.notebook-free-block{
+  box-sizing:border-box!important;
+  max-width:calc(100% - 10px)!important;
+  max-height:calc(100% - 10px)!important;
+}
+
+/*
+  Avoid responsive width overrides from older patches.
+  On smaller screens, scroll/zoom instead of changing page geometry.
+*/
+@media(max-width:900px){
+  .notebook-desk.single .notebook-page,
+  .notebook-desk.spread .notebook-page,
+  .notebook-page{
+    width:760px!important;
+    min-width:760px!important;
+    max-width:760px!important;
+    flex-basis:760px!important;
+    min-height:920px!important;
+    height:920px!important;
+  }
+
+  .notebook-desk.spread .notebook-page-stack{
+    flex-direction:row!important;
+    align-items:flex-start!important;
+  }
+
+  .notebook-desk{
+    overflow:auto!important;
+  }
+}
+
+/* Let the desk scroll rather than shrink/reflow the page. */
+.notebook-desk{
+  overflow:auto!important;
+  padding-bottom:80px!important;
+}
+
+/* If notebook zoom is active, it scales the whole stable canvas, not the page internals. */
+.notebook-desk .notebook-page-stack{
+  transform:scale(var(--notebook-zoom, 1))!important;
+  transform-origin:center top!important;
+}
+
+
+
+/* ---- Notebook spread centering refinement ---- */
+
+/*
+  Keep the fixed page canvas, but centre the scaled spread within
+  the usable reading zone between the left notebook rail and the right zoom rail.
+*/
+
+.notebook-desk{
+  position:relative!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* Single page remains comfortably centred. */
+.notebook-desk.single{
+  padding-left:96px!important;
+  padding-right:96px!important;
+  display:flex!important;
+  justify-content:center!important;
+}
+
+/* Two-page mode: reserve balanced tool space, then centre the spread. */
+.notebook-desk.spread{
+  padding-left:96px!important;
+  padding-right:96px!important;
+  display:flex!important;
+  justify-content:center!important;
+}
+
+/* The page stack itself should centre from its own middle, not drift left. */
+.notebook-desk.spread .notebook-page-stack{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  transform-origin:center top!important;
+}
+
+/* At the 83% spread zoom, this keeps both pages visually centred between rails. */
+.notebook-desk.spread.fit .notebook-page-stack{
+  translate:18px 0!important;
+}
+
+/* Fullscreen has less UI pressure, so use true centre with only a very slight optical nudge. */
+.notebook-desk.presenter.spread{
+  padding-left:48px!important;
+  padding-right:48px!important;
+  justify-content:center!important;
+}
+
+.notebook-desk.presenter.spread .notebook-page-stack{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  transform-origin:center top!important;
+  translate:0 0!important;
+}
+
+/* Single-page fullscreen stays centred too. */
+.notebook-desk.presenter.single{
+  padding-left:48px!important;
+  padding-right:48px!important;
+  justify-content:center!important;
+}
+
+/* Avoid older mobile/narrow rules forcing left drift. */
+@media(max-width:1200px){
+  .notebook-desk.spread{
+    padding-left:72px!important;
+    padding-right:72px!important;
+  }
+
+  .notebook-desk.spread.fit .notebook-page-stack{
+    translate:10px 0!important;
+  }
+}
+
+@media(max-width:900px){
+  .notebook-desk.single,
+  .notebook-desk.spread{
+    padding-left:80px!important;
+    padding-right:28px!important;
+    justify-content:flex-start!important;
+  }
+
+  .notebook-desk.spread .notebook-page-stack{
+    margin-left:0!important;
+    margin-right:0!important;
+    translate:0 0!important;
+  }
+}
+
+
+
+/* ---- Notebook custom cover upload ---- */
+
+.notebook-cover-swatch.custom{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,231,188,.18), transparent 34%),
+    linear-gradient(135deg, rgba(42,27,15,.92), rgba(14,8,5,.96))!important;
+  color:#f4dfb9!important;
+}
+
+.notebook-cover-swatch.custom .custom-cover-thumb{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+}
+
+.notebook-cover-swatch.custom .custom-cover-thumb::after{
+  content:"Custom";
+  position:absolute;
+  left:8px;
+  bottom:8px;
+  border-radius:999px;
+  padding:4px 8px;
+  background:rgba(20,10,6,.72);
+  color:#f4dfb9;
+  font-size:10px;
+  font-weight:900;
+  backdrop-filter:blur(8px);
+}
+
+.notebook-custom-cover-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.notebook-custom-cover-button,
+.notebook-clear-cover-button{
+  border:1px solid rgba(176,138,71,.24);
+  border-radius:999px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.notebook-clear-cover-button{
+  color:#ffd9c8;
+  background:rgba(146,42,35,.16);
+}
+
+.notebook-editor-shell.cover-custom{
+  background-size:cover!important;
+  background-position:center!important;
+}
+
+
+
+/* ---- Crash-safe notebook edit modal support ---- */
+
+.notebook-edit-note{
+  margin:8px 0 0;
+  color:#d6bd8d;
+  font-size:12px;
+  line-height:1.45;
+}
+
+.notebook-cover-swatch.custom{
+  position:relative;
+  overflow:hidden;
+}
+
+.notebook-cover-swatch.custom .custom-cover-thumb{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+}
+
+.notebook-cover-swatch.custom .custom-cover-thumb::after{
+  content:"Custom";
+  position:absolute;
+  left:8px;
+  bottom:8px;
+  border-radius:999px;
+  padding:4px 8px;
+  background:rgba(20,10,6,.72);
+  color:#f4dfb9;
+  font-size:10px;
+  font-weight:900;
+  backdrop-filter:blur(8px);
+}
+
+.notebook-custom-cover-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.notebook-custom-cover-button,
+.notebook-clear-cover-button{
+  border:1px solid rgba(176,138,71,.24);
+  border-radius:999px;
+  background:rgba(243,230,200,.08);
+  color:#f4dfb9;
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:900;
+}
+
+.notebook-clear-cover-button{
+  color:#ffd9c8;
+  background:rgba(146,42,35,.16);
+}
+

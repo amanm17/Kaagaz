@@ -34,6 +34,7 @@ export default function PdfReader({ bookId, file, onHome }) {
   const [redoStack, setRedoStack] = useState([])
   const [zoom, setZoom] = useState(1)
   const [fitToScreen, setFitToScreen] = useState(true)
+  const [readerPresenterMode, setReaderPresenterMode] = useState(false)
   const [toolbarHidden, setToolbarHidden] = useState(false)
   const [pomodoroOpen, setPomodoroOpen] = useState(false)
   const [timeMode, setTimeMode] = useState('spent')
@@ -786,7 +787,7 @@ export default function PdfReader({ bookId, file, onHome }) {
 
   const pct = totalPages ? Math.round((Math.min(page + (viewMode === 'spread' ? 1 : 0), totalPages) / totalPages) * 100) : 0
   const toolbarClass = `reader-toolbar ${toolbarPosition === 'bottom' ? 'bottom' : 'left'} ${toolbarHidden ? 'is-hidden' : ''}`
-  const shellClass = `reader-shell toolbar-${toolbarPosition} ${showArrows ? 'arrows-visible' : ''} ${activeMarkTool ? 'mark-tool-active' : ''}`
+  const shellClass = `reader-shell toolbar-${toolbarPosition} ${readerPresenterMode ? 'presenter-focus' : ''} ${showArrows ? 'arrows-visible' : ''} ${activeMarkTool ? 'mark-tool-active' : ''}`
 
   return (
     <div ref={shellRef} className={shellClass} style={jacketStyle()} onWheel={onWheel} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -878,6 +879,19 @@ export default function PdfReader({ bookId, file, onHome }) {
       </aside>
 
       <aside className="zoom-rail" aria-label="Zoom controls">
+        <button
+          className={`zoom-fit reader-presenter-bubble ${readerPresenterMode ? 'active' : ''}`}
+          title={readerPresenterMode ? 'Exit presenter mode' : 'Presenter mode'}
+          data-tooltip={readerPresenterMode ? 'Exit presenter' : 'Presenter'}
+          aria-label="Presenter mode"
+          onClick={() => {
+            setReaderPresenterMode((value) => !value)
+            setFitToScreen(false)
+            setZoom((value) => value < 1.12 ? 1.15 : value)
+          }}
+        >
+          Pres
+        </button>
         <button className={`zoom-fit ${fitToScreen ? 'active' : ''}`} title="Fit page to screen" onClick={() => setFitToScreen((v) => !v)}>Fit</button>
         <input type="range" min="0.65" max="1.85" step="0.05" value={zoom} onChange={(e) => { setFitToScreen(false); setZoom(Number(e.target.value)) }} aria-label="Zoom PDF" />
         <span>{Math.round((fitToScreen ? 1 : zoom) * 100)}%</span>
