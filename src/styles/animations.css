@@ -1,0 +1,47 @@
+@keyframes kaagazTurnNext{0%{transform:perspective(1600px) rotateY(0deg) translateX(0);filter:brightness(1);box-shadow:0 46px 96px rgba(0,0,0,.54)}34%{transform:perspective(1600px) rotateY(-9deg) translateX(-8px) skewY(-.5deg);filter:brightness(.96)}68%{transform:perspective(1600px) rotateY(-2deg) translateX(-18px);filter:brightness(.91)}100%{transform:perspective(1600px) rotateY(0deg) translateX(0);filter:brightness(1)}}
+@keyframes kaagazTurnPrev{0%{transform:perspective(1600px) rotateY(0deg) translateX(0);filter:brightness(1);box-shadow:0 46px 96px rgba(0,0,0,.54)}34%{transform:perspective(1600px) rotateY(9deg) translateX(8px) skewY(.5deg);filter:brightness(.96)}68%{transform:perspective(1600px) rotateY(2deg) translateX(18px);filter:brightness(.91)}100%{transform:perspective(1600px) rotateY(0deg) translateX(0);filter:brightness(1)}}
+@keyframes kaagazSpreadNext{0%{transform-origin:left center;transform:perspective(1800px) rotateY(0deg) translateX(0);filter:brightness(1)}42%{transform:perspective(1800px) rotateY(-18deg) translateX(-18px);filter:brightness(.93)}72%{transform:perspective(1800px) rotateY(-5deg) translateX(-28px);filter:brightness(.88)}100%{transform:perspective(1800px) rotateY(0deg) translateX(0);filter:brightness(1)}}
+@keyframes kaagazSpreadPrev{0%{transform-origin:right center;transform:perspective(1800px) rotateY(0deg) translateX(0);filter:brightness(1)}42%{transform:perspective(1800px) rotateY(18deg) translateX(18px);filter:brightness(.93)}72%{transform:perspective(1800px) rotateY(5deg) translateX(28px);filter:brightness(.88)}100%{transform:perspective(1800px) rotateY(0deg) translateX(0);filter:brightness(1)}}
+.reader-stage.flip-enabled.turn-next:not(.spread) .pdf-page{animation:kaagazTurnNext .86s cubic-bezier(.18,.76,.13,1)}
+.reader-stage.flip-enabled.turn-prev:not(.spread) .pdf-page{animation:kaagazTurnPrev .86s cubic-bezier(.18,.76,.13,1)}
+.reader-stage.spread.flip-enabled.turn-next .pdf-page{animation:none!important}.reader-stage.spread.flip-enabled.turn-prev .pdf-page{animation:none!important}
+.reader-stage.spread.flip-enabled.turn-next .book-plane .pdf-page:last-of-type{animation:kaagazSpreadNext .92s cubic-bezier(.18,.76,.13,1)!important;transform-origin:left center;z-index:4}
+.reader-stage.spread.flip-enabled.turn-prev .book-plane .pdf-page:first-of-type{animation:kaagazSpreadPrev .92s cubic-bezier(.18,.76,.13,1)!important;transform-origin:right center;z-index:4}
+.upload-card,.library-card,.side-panel,.reader-toolbar,.pdf-page{will-change:transform,opacity}.corner-bookmark{animation:bookmarkSettle .34s ease both}@keyframes bookmarkSettle{from{opacity:0;transform:translateY(-8px) rotate(12deg) scale(.92)}to{opacity:1}}
+.highlight-rect{animation:markWash .22s ease both}.underline-rect{animation:markWash .18s ease both}@keyframes markWash{from{opacity:0;transform:scaleX(.96)}to{opacity:1;transform:scaleX(1)}}
+.side-panel.open{animation:panelIn .24s ease both}@keyframes panelIn{from{filter:brightness(.86)}to{filter:brightness(1)}}
+
+
+/* Smoother, less jittery page-turn physics */
+@keyframes kaagazTurnNext{
+  0%{transform:perspective(1800px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+  28%{transform:perspective(1800px) rotateY(-5deg) translateX(-4px) scale(.998);filter:brightness(.985)}
+  58%{transform:perspective(1800px) rotateY(-11deg) translateX(-14px) scale(.994);filter:brightness(.955)}
+  82%{transform:perspective(1800px) rotateY(-3deg) translateX(-7px) scale(.998);filter:brightness(.985)}
+  100%{transform:perspective(1800px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+}
+@keyframes kaagazTurnPrev{
+  0%{transform:perspective(1800px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+  28%{transform:perspective(1800px) rotateY(5deg) translateX(4px) scale(.998);filter:brightness(.985)}
+  58%{transform:perspective(1800px) rotateY(11deg) translateX(14px) scale(.994);filter:brightness(.955)}
+  82%{transform:perspective(1800px) rotateY(3deg) translateX(7px) scale(.998);filter:brightness(.985)}
+  100%{transform:perspective(1800px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+}
+@keyframes kaagazSpreadNext{
+  0%{transform-origin:left center;transform:perspective(2000px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+  34%{transform:perspective(2000px) rotateY(-9deg) translateX(-8px) scale(.997);filter:brightness(.975)}
+  66%{transform:perspective(2000px) rotateY(-18deg) translateX(-20px) scale(.993);filter:brightness(.94)}
+  86%{transform:perspective(2000px) rotateY(-5deg) translateX(-10px) scale(.998);filter:brightness(.98)}
+  100%{transform:perspective(2000px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+}
+@keyframes kaagazSpreadPrev{
+  0%{transform-origin:right center;transform:perspective(2000px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+  34%{transform:perspective(2000px) rotateY(9deg) translateX(8px) scale(.997);filter:brightness(.975)}
+  66%{transform:perspective(2000px) rotateY(18deg) translateX(20px) scale(.993);filter:brightness(.94)}
+  86%{transform:perspective(2000px) rotateY(5deg) translateX(10px) scale(.998);filter:brightness(.98)}
+  100%{transform:perspective(2000px) rotateY(0deg) translateX(0) scale(1);filter:brightness(1)}
+}
+.reader-stage.flip-enabled.turn-next:not(.spread) .pdf-page{animation:kaagazTurnNext .86s cubic-bezier(.18,.76,.13,1)!important}
+.reader-stage.flip-enabled.turn-prev:not(.spread) .pdf-page{animation:kaagazTurnPrev .86s cubic-bezier(.18,.76,.13,1)!important}
+.reader-stage.spread.flip-enabled.turn-next .book-plane .pdf-page:last-of-type{animation:kaagazSpreadNext .92s cubic-bezier(.18,.76,.13,1)!important}
+.reader-stage.spread.flip-enabled.turn-prev .book-plane .pdf-page:first-of-type{animation:kaagazSpreadPrev .92s cubic-bezier(.18,.76,.13,1)!important}
