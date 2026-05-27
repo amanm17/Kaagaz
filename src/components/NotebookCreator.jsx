@@ -34,7 +34,7 @@ export default function NotebookCreator({ open, onClose, onCreated, editNotebook
   const [coverValue, setCoverValue] = useState('')
   const [defaultPageType, setDefaultPageType] = useState('ruled')
   const [defaultPageShade, setDefaultPageShade] = useState('cream')
-  const [creating, setCreating] = useState(false)
+  const [saving, setSaving] = useState(false)
 
   const isEditing = Boolean(editNotebook?.id)
 
@@ -82,14 +82,18 @@ export default function NotebookCreator({ open, onClose, onCreated, editNotebook
 
   async function saveNotebook() {
     const cleanTitle = title.trim()
-    if (!cleanTitle || creating) return
+    if (!cleanTitle || saving) return
 
-    setCreating(true)
-    const now = Date.now()
+    setSaving(true)
 
     try {
+      const now = Date.now()
       const safeCoverType = coverType === 'custom' && !coverValue ? 'walnut' : coverType
       const safeCoverValue = safeCoverType === 'custom' ? coverValue : ''
+
+      if (!db.notebooks || !db.notebookPages) {
+        throw new Error('Notebook database stores are not available. IndexedDB schema may not have upgraded.')
+      }
 
       if (isEditing) {
         await db.notebooks.update(Number(editNotebook.id), {
@@ -101,7 +105,7 @@ export default function NotebookCreator({ open, onClose, onCreated, editNotebook
           updatedAt: now,
         })
 
-        onCreated?.(editNotebook.id, { edited: true })
+        onCreated?.(Number(editNotebook.id), { edited: true })
         onClose?.()
         return
       }
@@ -132,10 +136,10 @@ export default function NotebookCreator({ open, onClose, onCreated, editNotebook
       onCreated?.(notebookId, { edited: false })
       onClose?.()
     } catch (error) {
-      console.error('Notebook save failed:', error)
-      window.alert('Could not save notebook settings. Please check the console for details.')
+      console.error('Create/Edit notebook failed:', error)
+      window.alert(`Could not save notebook. ${error?.message || 'Unknown error'}`)
     } finally {
-      setCreating(false)
+      setSaving(false)
     }
   }
 
@@ -232,8 +236,8 @@ export default function NotebookCreator({ open, onClose, onCreated, editNotebook
 
         <div className="notebook-creator-actions">
           <button type="button" className="ghost-btn" onClick={onClose}>Cancel</button>
-          <button type="button" className="primary-btn" onClick={saveNotebook} disabled={!title.trim() || creating}>
-            {creating ? (isEditing ? 'Saving…' : 'Creating…') : (isEditing ? 'Save Changes' : 'Create Notebook')}
+          <button type="button" className="primary-btn" onClick={saveNotebook} disabled={!title.trim() || saving}>
+            {saving ? (isEditing ? 'Saving…' : 'Creating…') : (isEditing ? 'Save Changes' : 'Create Notebook')}
           </button>
         </div>
       </div>

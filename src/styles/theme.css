@@ -2701,3 +2701,158 @@ button[title="Curly"],
   background-position:center!important;
 }
 
+
+
+/* ---- PDF reader zoom rail hide/show restoration ---- */
+
+.zoom-rail{
+  transition:opacity .18s ease, transform .18s ease;
+}
+
+.zoom-rail.is-hidden{
+  width:38px!important;
+  min-width:38px!important;
+  padding:8px 6px!important;
+  opacity:.72;
+}
+
+.zoom-rail.is-hidden:hover{
+  opacity:1;
+}
+
+.zoom-hide-btn{
+  width:34px!important;
+  height:30px!important;
+  min-height:30px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(176,138,71,.24)!important;
+  border-radius:999px!important;
+  background:rgba(243,230,200,.07)!important;
+  color:#d6bd8d!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  cursor:pointer!important;
+}
+
+.zoom-hide-btn:hover{
+  border-color:rgba(252,220,139,.46)!important;
+  color:#f4dfb9!important;
+}
+
+.zoom-peek{
+  width:30px!important;
+  height:72px!important;
+  display:grid!important;
+  place-items:center!important;
+  writing-mode:vertical-rl!important;
+  text-orientation:mixed!important;
+  border:1px solid rgba(176,138,71,.24)!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.72)!important;
+  color:#f4dfb9!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.04em!important;
+  cursor:pointer!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+
+.zoom-peek:hover{
+  border-color:rgba(252,220,139,.46)!important;
+  background:rgba(31,18,11,.88)!important;
+}
+
+.zoom-rail.is-hidden input,
+.zoom-rail.is-hidden span,
+.zoom-rail.is-hidden .zoom-fit,
+.zoom-rail.is-hidden .zoom-hide-btn{
+  display:none!important;
+}
+
+
+
+/* ---- Refined PDF zoom rail: presenter restored + tiny collapse tab ---- */
+
+/* Presenter button inside PDF zoom rail */
+.zoom-rail .reader-presenter-bubble{
+  font-size:10px!important;
+  letter-spacing:.01em!important;
+}
+
+.zoom-rail .reader-presenter-bubble.active{
+  color:#2a1a12!important;
+  background:linear-gradient(135deg, rgba(252,220,139,.94), rgba(180,129,50,.88))!important;
+  box-shadow:0 0 0 2px rgba(252,220,139,.24), 0 0 18px rgba(252,220,139,.18)!important;
+}
+
+/* Make the hidden magnification rail significantly smaller. */
+.zoom-rail.is-hidden{
+  width:24px!important;
+  min-width:24px!important;
+  max-width:24px!important;
+  height:54px!important;
+  min-height:54px!important;
+  max-height:54px!important;
+  padding:3px!important;
+  border-radius:999px!important;
+  opacity:.64!important;
+  overflow:visible!important;
+}
+
+.zoom-rail.is-hidden:hover{
+  opacity:1!important;
+}
+
+/* Hide all full controls while collapsed. */
+.zoom-rail.is-hidden input,
+.zoom-rail.is-hidden span,
+.zoom-rail.is-hidden .zoom-fit,
+.zoom-rail.is-hidden .reader-presenter-bubble,
+.zoom-rail.is-hidden .zoom-hide-btn{
+  display:none!important;
+}
+
+/* Tiny vertical collapsed tab. */
+.zoom-peek{
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:46px!important;
+  min-height:46px!important;
+  max-height:46px!important;
+  display:grid!important;
+  place-items:center!important;
+  writing-mode:horizontal-tb!important;
+  text-orientation:mixed!important;
+  border:1px solid rgba(176,138,71,.24)!important;
+  border-radius:999px!important;
+  background:rgba(31,18,11,.76)!important;
+  color:#f4dfb9!important;
+  font-size:11px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  cursor:pointer!important;
+  padding:0!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+
+.zoom-peek:hover{
+  border-color:rgba(252,220,139,.50)!important;
+  background:rgba(31,18,11,.94)!important;
+  transform:translateX(-1px);
+}
+
+/* Keep full rail controls neat with the added Presenter button. */
+.zoom-rail:not(.is-hidden){
+  gap:8px!important;
+}
+
+.zoom-hide-btn{
+  width:32px!important;
+  height:28px!important;
+  min-height:28px!important;
+  padding:0!important;
+}
+

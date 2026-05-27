@@ -34,6 +34,7 @@ export default function PdfReader({ bookId, file, onHome }) {
   const [redoStack, setRedoStack] = useState([])
   const [zoom, setZoom] = useState(1)
   const [fitToScreen, setFitToScreen] = useState(true)
+  const [zoomRailHidden, setZoomRailHidden] = useState(false)
   const [readerPresenterMode, setReaderPresenterMode] = useState(false)
   const [toolbarHidden, setToolbarHidden] = useState(false)
   const [pomodoroOpen, setPomodoroOpen] = useState(false)
@@ -878,23 +879,36 @@ export default function PdfReader({ bookId, file, onHome }) {
         </div>}
       </aside>
 
-      <aside className="zoom-rail" aria-label="Zoom controls">
-        <button
-          className={`zoom-fit reader-presenter-bubble ${readerPresenterMode ? 'active' : ''}`}
-          title={readerPresenterMode ? 'Exit presenter mode' : 'Presenter mode'}
-          data-tooltip={readerPresenterMode ? 'Exit presenter' : 'Presenter'}
-          aria-label="Presenter mode"
-          onClick={() => {
-            setReaderPresenterMode((value) => !value)
-            setFitToScreen(false)
-            setZoom((value) => value < 1.12 ? 1.15 : value)
-          }}
-        >
-          Pres
-        </button>
-        <button className={`zoom-fit ${fitToScreen ? 'active' : ''}`} title="Fit page to screen" onClick={() => setFitToScreen((v) => !v)}>Fit</button>
-        <input type="range" min="0.65" max="1.85" step="0.05" value={zoom} onChange={(e) => { setFitToScreen(false); setZoom(Number(e.target.value)) }} aria-label="Zoom PDF" />
-        <span>{Math.round((fitToScreen ? 1 : zoom) * 100)}%</span>
+      <aside className={`zoom-rail ${zoomRailHidden ? 'is-hidden' : ''}`} aria-label="Zoom controls">
+        {!zoomRailHidden && (
+          <>
+            <button
+              className={`zoom-fit reader-presenter-bubble ${readerPresenterMode ? 'active' : ''}`}
+              title={readerPresenterMode ? 'Exit presenter mode' : 'Presenter mode'}
+              data-tooltip={readerPresenterMode ? 'Exit presenter' : 'Presenter'}
+              aria-label="Presenter mode"
+              onClick={() => {
+                setReaderPresenterMode((value) => !value)
+                setFitToScreen(false)
+                setZoom((value) => value < 1.12 ? 1.15 : value)
+              }}
+            >
+              Pres
+            </button>
+
+            <button className={`zoom-fit ${fitToScreen ? 'active' : ''}`} title="Fit page to screen" data-tooltip="Fit page" onClick={() => setFitToScreen((v) => !v)}>Fit</button>
+
+            <input type="range" min="0.65" max="1.85" step="0.05" value={zoom} onChange={(e) => { setFitToScreen(false); setZoom(Number(e.target.value)) }} aria-label="Zoom PDF" />
+
+            <span>{Math.round((fitToScreen ? 1 : zoom) * 100)}%</span>
+
+            <button className="zoom-hide-btn" title="Hide magnification" data-tooltip="Hide magnification" onClick={() => setZoomRailHidden(true)}>›</button>
+          </>
+        )}
+
+        {zoomRailHidden && (
+          <button title="Show magnification" data-tooltip="Show magnification" className="zoom-peek" onClick={() => setZoomRailHidden(false)}>⌕</button>
+        )}
       </aside>
 
       <main className={`reader-stage ${viewMode} ${flipMode ? 'flip-enabled' : ''} ${turning}`}>
